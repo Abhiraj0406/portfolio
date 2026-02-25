@@ -22,8 +22,14 @@ export default function Header() {
       className="fixed top-0 left-0 right-0 z-50 border-b border-slate-800/80 bg-slate-900/80 backdrop-blur-md"
     >
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-        <a href="#hero" className="text-lg font-semibold text-slate-100 transition hover:text-teal-400">
-          A.V.
+        <a
+          href="#hero"
+          className="group flex items-center font-semibold tracking-tight transition"
+          aria-label="Home"
+        >
+          <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-teal-500/50 bg-teal-500/10 transition group-hover:border-teal-400/60 group-hover:bg-teal-500/15">
+            <span className="text-[13px] font-semibold text-teal-400 transition group-hover:text-teal-300">A.V</span>
+          </span>
         </a>
         <ul className="hidden gap-8 md:flex">
           {NAV_LINKS.map((link) => (

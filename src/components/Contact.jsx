@@ -1,14 +1,37 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+// Replace with your Formspree form ID from https://formspree.io (free)
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ID
+  ? `https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_ID}`
+  : '';
 
-  const handleSubmit = (e) => {
+export default function Contact() {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState('idle'); // 'idle' | 'sending' | 'success' | 'error'
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setFormData({ name: '', email: '', message: '' });
+    if (!FORMSPREE_ENDPOINT) {
+      setStatus('error');
+      return;
+    }
+    setStatus('sending');
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
   };
 
   const handleChange = (e) => {
@@ -130,12 +153,27 @@ export default function Contact() {
                 placeholder="Your message"
               />
             </div>
+            {!FORMSPREE_ENDPOINT && (
+              <p className="rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-sm text-amber-200">
+                Add <code className="rounded bg-amber-500/20 px-1">VITE_FORMSPREE_ID</code> in <code className="rounded bg-amber-500/20 px-1">.env</code> to enable the form. Get your form ID at{' '}
+                <a href="https://formspree.io" target="_blank" rel="noopener noreferrer" className="underline hover:text-amber-100">formspree.io</a>.
+              </p>
+            )}
+            {status === 'error' && (
+              <p className="text-sm text-red-400">
+                Something went wrong. Please email me directly or try again.
+              </p>
+            )}
             <button
               type="submit"
-              disabled={submitted}
+              disabled={status === 'sending' || !FORMSPREE_ENDPOINT}
               className="w-full rounded-lg border border-teal-500/50 bg-teal-500/10 py-3 font-medium text-teal-400 transition hover:border-teal-400 hover:bg-teal-500/20 disabled:opacity-60"
             >
-              {submitted ? 'Thanks — message received' : 'Send message'}
+              {status === 'sending'
+                ? 'Sending…'
+                : status === 'success'
+                  ? 'Thanks — message received'
+                  : 'Send message'}
             </button>
           </motion.form>
         </div>

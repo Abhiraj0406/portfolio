@@ -13,3 +13,7 @@ dist/
 # Editor
 .vscode/
 .idea/
+
+# Temp / script helpers
+msg_clean.txt
+set_msg.ps1
