@@ -18,6 +18,23 @@ npm run build
 npm run preview
 ```
 
+## Host on GitHub Pages
+
+1. **Push your code** to GitHub (repo: `Abhiraj0406/portfolio`).
+
+2. **Turn on GitHub Pages**
+   - Open the repo on GitHub → **Settings** → **Pages**.
+   - Under **Build and deployment** → **Source**, choose **GitHub Actions**.
+
+3. **Optional – contact form**
+   - In the repo: **Settings** → **Secrets and variables** → **Actions**.
+   - Add a secret: name `VITE_FORMSPREE_ID`, value = your Formspree form ID (from [formspree.io](https://formspree.io)).
+   - This lets the deployed site use the contact form.
+
+4. **Deploy**
+   - Every push to `main` runs the workflow and deploys the site.
+   - Live URL: **https://abhiraj0406.github.io/portfolio/**
+
 ## Stack
 
 - **React** + **Vite**
