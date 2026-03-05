@@ -2,29 +2,24 @@ import { motion } from 'framer-motion';
 
 const JOBS = [
   {
-    title: 'Software Apprentice (Backend Developer)',
-    company: 'Encardio-Rite Pvt. Ltd., Lucknow',
-    department: 'Edge of Technology (EOT Dept)',
+    title: 'Software Apprentice – Backend Developer',
+    company: 'Encardio-Rite Pvt. Ltd.',
     period: 'Jan 2025 – Jan 2026',
     highlights: [
-      'Developed and maintained FastAPI-based REST APIs for internal tooling and data services.',
-      'Designed PostgreSQL schemas and optimized queries for performance and reliability.',
-      'Implemented authentication using Keycloak and containerized services with Docker for consistent development and deployment.',
-      'Developed backend for an internal Sensor Calibration Software using Python and FastAPI; the calibration software enabled ~50% improvement in sensor data accuracy through automated and consistent calculation workflows.',
-      'Built backend APIs for an internal Financial Dashboard, including pagination, data handling, and structured financial reporting.',
-      'Contributed to backend logic for calibration and financial systems across the product suite.',
-      'Supported database design, backend testing, and technical documentation.',
+      'Developed backend services using Python and FastAPI.',
+      'Built APIs for engineering software used in sensor calibration.',
+      'Implemented data processing logic for structured calibration datasets.',
+      'Worked with Docker-based development environments and PostgreSQL.',
     ],
   },
   {
-    title: 'Full-Stack Developer Intern',
+    title: 'Full Stack Developer Intern',
     company: 'Zidio Development (Remote)',
-    department: null,
     period: 'Aug 2024 – Oct 2024',
     highlights: [
-      'Supported frontend-backend integration and feature debugging using React and REST APIs.',
-      'Worked on basic feature development, debugging, and testing tasks in real project workflows.',
-      'Gained hands-on exposure to how frontend, backend, and database layers integrate in production applications.',
+      'Worked on full stack web applications using modern web technologies.',
+      'Developed backend API endpoints and integrated them with frontend features.',
+      'Debugged frontend and backend issues across the stack.',
     ],
   },
 ];
@@ -49,9 +44,9 @@ export default function Experience() {
           transition={{ duration: 0.4, delay: 0.05 }}
           className="mb-12 text-2xl font-semibold text-slate-100 sm:text-3xl"
         >
-          Where I've worked
+          Professional timeline
         </motion.p>
-        <div className="space-y-12">
+        <div className="space-y-10 border-l border-slate-800 pl-4 sm:space-y-12 sm:pl-6">
           {JOBS.map((job, i) => (
             <motion.article
               key={job.company}
@@ -59,20 +54,18 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="rounded-xl border border-slate-800 bg-slate-800/20 p-6 sm:p-8"
+              className="relative rounded-xl border border-slate-800 bg-slate-800/20 p-5 sm:p-7"
             >
+              <span className="absolute -left-2 top-6 h-3 w-3 rounded-full border border-slate-900 bg-teal-500" />
               <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <h3 className="text-lg font-semibold text-slate-100">{job.title}</h3>
-                <span className="text-sm text-teal-400">{job.period}</span>
+                <h3 className="text-base font-semibold text-slate-100 sm:text-lg">{job.title}</h3>
+                <span className="text-xs text-teal-400 sm:text-sm">{job.period}</span>
               </div>
-              <p className="mt-1 text-slate-400">{job.company}</p>
-              {job.department && (
-                <p className="mt-0.5 text-sm text-slate-500">{job.department}</p>
-              )}
-              <ul className="mt-5 space-y-2">
+              <p className="mt-1 text-sm text-slate-400 sm:text-base">{job.company}</p>
+              <ul className="mt-4 space-y-1.5 text-sm text-slate-300">
                 {job.highlights.map((h) => (
-                  <li key={h} className="flex gap-2 text-slate-300">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-teal-500" />
+                  <li key={h} className="flex gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-teal-500" />
                     <span>{h}</span>
                   </li>
                 ))}
