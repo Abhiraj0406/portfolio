@@ -2,33 +2,47 @@ import { motion } from 'framer-motion';
 
 const PROJECTS = [
   {
+    name: 'ExploreHub – Web Data Exploration Platform',
+    stack: ['Next.js', 'NestJS', 'Web Scraping', 'REST APIs', 'PostgreSQL'],
+    bullets: [
+      'Built a full-stack platform for discovering and exploring structured web data.',
+      'Implemented backend services using NestJS to handle API requests and data processing.',
+      'Developed scraping workflows to extract structured information from web sources.',
+      'Integrated Next.js frontend with backend APIs to present dynamic data to users.',
+      'Designed scalable API endpoints and database structure for efficient data retrieval.',
+    ],
+    repo: 'https://github.com/Abhiraj0406/ExploreHub',
+    live: 'https://explore-hub-neon.vercel.app/',
+  },
+  {
     name: 'Sensor Calibration Software',
-    description: 'Internal tool built with FastAPI and PostgreSQL for Encardio-Rite. Automated and standardized calculation workflows for sensor calibration, resulting in ~50% improvement in sensor data accuracy. Backend handles calibration logic, data validation, and persistence with optimized queries and clear API design.',
     stack: ['Python', 'FastAPI', 'PostgreSQL'],
+    bullets: [
+      'Internal tool for Encardio-Rite: automated calibration workflows.',
+      '~50% improvement in sensor data accuracy via consistent calculation logic.',
+      'Backend handles calibration logic, validation, and optimized queries.',
+    ],
     repo: null,
     live: null,
   },
   {
     name: 'Financial Dashboard',
-    description: 'Backend APIs for an internal Financial Dashboard with pagination and structured financial reporting. Enables consistent data handling, filtered views, and export-friendly responses for finance and operations teams.',
     stack: ['FastAPI', 'PostgreSQL', 'REST API'],
+    bullets: [
+      'Backend APIs with pagination and structured financial reporting.',
+      'Filtered views and export-friendly responses for finance teams.',
+    ],
     repo: null,
     live: null,
-  },
-  {
-    name: 'ExploreHub',
-    description: 'Full-stack application with FastAPI backend, React frontend, and PostgreSQL database. Demonstrates API-driven architecture, auth flows, and modern deployment. Deployed on Vercel (frontend) and Railway (backend).',
-    stack: ['FastAPI', 'React', 'PostgreSQL', 'Vercel', 'Railway'],
-    repo: 'https://github.com/Abhiraj0406/ExploreHub',
-    live: 'https://explore-hub-neon.vercel.app/',
   },
 ];
 
 export default function FeaturedProjects() {
   return (
-    <section id="projects" className="border-t border-slate-800 px-6 py-20 sm:py-24">
+    <section id="projects" className="border-t border-slate-800 px-6 py-20 sm:py-24" aria-labelledby="projects-heading">
       <div className="mx-auto max-w-5xl">
         <motion.h2
+          id="projects-heading"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
@@ -57,9 +71,14 @@ export default function FeaturedProjects() {
               className="flex flex-col rounded-xl border border-slate-800 bg-slate-800/20 p-6 transition hover:border-teal-500/30"
             >
               <h3 className="text-lg font-semibold text-slate-100">{project.name}</h3>
-              <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-400">
-                {project.description}
-              </p>
+              <ul className="mt-3 flex-1 space-y-1.5 text-sm text-slate-400">
+                {project.bullets.map((bullet) => (
+                  <li key={bullet} className="flex gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-teal-500" aria-hidden />
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
               <div className="mt-4 flex flex-wrap gap-2">
                 {project.stack.map((tech) => (
                   <span
@@ -71,17 +90,7 @@ export default function FeaturedProjects() {
                 ))}
               </div>
               {(project.repo || project.live) && (
-                <div className="mt-4 flex gap-4">
-                  {project.repo && (
-                    <a
-                      href={project.repo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-medium text-teal-400 hover:text-teal-300"
-                    >
-                      Repo →
-                    </a>
-                  )}
+                <div className="mt-4 flex flex-wrap gap-4">
                   {project.live && (
                     <a
                       href={project.live}
@@ -89,7 +98,17 @@ export default function FeaturedProjects() {
                       rel="noopener noreferrer"
                       className="text-sm font-medium text-teal-400 hover:text-teal-300"
                     >
-                      Live site →
+                      View Live Project →
+                    </a>
+                  )}
+                  {project.repo && (
+                    <a
+                      href={project.repo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-medium text-teal-400 hover:text-teal-300"
+                    >
+                      View Source Code →
                     </a>
                   )}
                 </div>

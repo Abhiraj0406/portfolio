@@ -2,6 +2,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import TechStack from './components/TechStack';
+import BackendSkills from './components/BackendSkills';
 import Experience from './components/Experience';
 import FeaturedProjects from './components/FeaturedProjects';
 import Education from './components/Education';
@@ -17,6 +18,7 @@ function App() {
         <Hero />
         <About />
         <TechStack />
+        <BackendSkills />
         <Experience />
         <FeaturedProjects />
         <Education />
