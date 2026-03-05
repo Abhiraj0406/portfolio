@@ -7,6 +7,7 @@ export default function Hero() {
     <section
       id="hero"
       className="relative flex min-h-screen flex-col items-center justify-center px-6 pt-24 pb-16"
+      aria-label="Introduction"
     >
       <div className="mx-auto max-w-3xl text-center">
         <motion.h1

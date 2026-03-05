@@ -41,9 +41,13 @@ npm run preview
 - **Tailwind CSS** (v4)
 - **Framer Motion** (scroll and entrance animations)
 
+## Resume download
+
+Add **Abhiraj_Vishwakarma_Resume.pdf** to the `public/` folder so the Hero "Download Resume" button works. The link uses `download` and works on desktop and mobile.
+
 ## Sections
 
-- Hero (title, GitHub & LinkedIn)
+- Hero (title, Download Resume, View Projects, Contact, GitHub & LinkedIn)
 - Tech Stack (Python/FastAPI, PostgreSQL, Docker, Keycloak, Laravel, React)
 - Experience (Encardio-Rite, Freelance / Jain Pandit)
 - Featured Projects (ExploreHub, Sensor Calibration Software)
