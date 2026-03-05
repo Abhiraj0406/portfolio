@@ -5,6 +5,7 @@ import TechStack from './components/TechStack';
 import BackendSkills from './components/BackendSkills';
 import Experience from './components/Experience';
 import FeaturedProjects from './components/FeaturedProjects';
+import GitHubSection from './components/GitHubSection';
 import Education from './components/Education';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
@@ -21,6 +22,7 @@ function App() {
         <BackendSkills />
         <Experience />
         <FeaturedProjects />
+        <GitHubSection />
         <Education />
         <Certifications />
         <Contact />
