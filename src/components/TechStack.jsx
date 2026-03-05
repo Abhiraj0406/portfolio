@@ -2,37 +2,47 @@ import { motion } from 'framer-motion';
 
 const SKILL_GROUPS = [
   {
-    title: 'Backend & APIs',
+    title: 'Languages',
     skills: [
-      { name: 'Python (FastAPI)', desc: 'REST APIs, async services, OOP' },
-      { name: 'PHP (Laravel)', desc: 'Backend APIs and web applications' },
-      { name: 'REST APIs', desc: 'Design and implementation' },
+      { name: 'Python', desc: 'Primary language for backend and scripting' },
+      { name: 'PHP', desc: 'Laravel-based backend applications' },
+      { name: 'JavaScript', desc: 'Frontend logic and Node.js scripts' },
+      { name: 'TypeScript', desc: 'Typed React / Next.js and backend code' },
+    ],
+  },
+  {
+    title: 'Backend',
+    skills: [
+      { name: 'FastAPI', desc: 'High-performance Python APIs and services' },
+      { name: 'Laravel', desc: 'RESTful APIs and server-side applications' },
+      { name: 'Node.js', desc: 'API services and tooling' },
+      { name: 'REST APIs', desc: 'Design, versioning, and best practices' },
+      { name: 'Keycloak (RBAC)', desc: 'Authentication and role-based access control' },
+    ],
+  },
+  {
+    title: 'Frontend',
+    skills: [
+      { name: 'React', desc: 'SPA and dashboard interfaces' },
+      { name: 'Next.js', desc: 'Full stack React apps with SSR' },
     ],
   },
   {
     title: 'Databases',
     skills: [
-      { name: 'PostgreSQL', desc: 'Schema design, query optimization' },
+      { name: 'PostgreSQL', desc: 'Schema design and query optimisation' },
       { name: 'MySQL', desc: 'Relational data and reporting' },
-      { name: 'ERD Design', desc: 'Data modeling and relationships' },
     ],
   },
   {
-    title: 'DevOps & Tools',
+    title: 'Tools',
     skills: [
-      { name: 'Docker', desc: 'Containerisation and dev environments' },
+      { name: 'Docker', desc: 'Containerised dev and deployment' },
       { name: 'Git', desc: 'Version control and collaboration' },
-      { name: 'Postman', desc: 'API testing and documentation' },
-      { name: 'Azure DevOps', desc: 'CI/CD and project workflows' },
-    ],
-  },
-  {
-    title: 'Auth & Frontend',
-    skills: [
-      { name: 'Keycloak (RBAC)', desc: 'Authentication and role-based access control' },
-      { name: 'React', desc: 'UI and frontend integration' },
-      { name: 'JavaScript / TypeScript', desc: 'Frontend logic and typing' },
-      { name: 'HTML, CSS', desc: 'Markup and styling' },
+      { name: 'Postman', desc: 'API testing and collections' },
+      { name: 'Azure DevOps', desc: 'Boards, pipelines, and project tracking' },
+      { name: 'CI/CD workflows', desc: 'Automated testing and deployment pipelines' },
+      { name: 'Cursor AI', desc: 'AI-assisted development workflow' },
     ],
   },
 ];
@@ -70,7 +80,7 @@ export default function TechStack() {
           transition={{ duration: 0.4, delay: 0.05 }}
           className="mb-12 text-2xl font-semibold text-slate-100 sm:text-3xl"
         >
-          Technical skills
+          Full stack technologies
         </motion.p>
         <div className="space-y-10">
           {SKILL_GROUPS.map((group, gIdx) => (
