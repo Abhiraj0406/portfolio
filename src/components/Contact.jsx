@@ -1,41 +1,62 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 
-// Replace with your Formspree form ID from https://formspree.io (free)
 const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ID
   ? `https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_ID}`
   : '';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState('idle'); // 'idle' | 'sending' | 'success' | 'error'
+  const [status, setStatus] = useState('idle'); // idle | sending | success | error
+
+  const mailToHref = useMemo(() => {
+    const subject = encodeURIComponent(`Portfolio inquiry from ${formData.name || 'a visitor'}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name || ''}\nEmail: ${formData.email || ''}\n\nMessage:\n${formData.message || ''}`
+    );
+    return `mailto:abhirajvishwakarma04@gmail.com?subject=${subject}&body=${body}`;
+  }, [formData.email, formData.message, formData.name]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Fallback if Formspree env is not configured
     if (!FORMSPREE_ENDPOINT) {
-      setStatus('error');
+      window.location.href = mailToHref;
       return;
     }
+
     setStatus('sending');
+
     try {
       const res = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
       });
+
       if (res.ok) {
         setStatus('success');
         setFormData({ name: '', email: '', message: '' });
-      } else {
-        setStatus('error');
+        return;
       }
+
+      setStatus('error');
     } catch {
       setStatus('error');
     }
-  };
-
-  const handleChange = (e) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   return (
@@ -50,6 +71,7 @@ export default function Contact() {
         >
           Contact
         </motion.h2>
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -57,8 +79,9 @@ export default function Contact() {
           transition={{ duration: 0.4, delay: 0.05 }}
           className="mb-12 text-2xl font-semibold text-slate-100 sm:text-3xl"
         >
-          Get in touch
+          Let’s connect
         </motion.p>
+
         <div className="grid gap-12 lg:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -67,20 +90,29 @@ export default function Contact() {
             className="space-y-6"
           >
             <p className="text-slate-400">
-              Backend developer with 1 year of experience in FastAPI, PostgreSQL, and Docker. Actively seeking backend and full-stack opportunities. Reach out via email, WhatsApp, phone, or the form below.
+              Backend developer with experience in Laravel, FastAPI, REST APIs, MySQL, PostgreSQL, Docker,
+              and Keycloak. Open to backend and full-stack opportunities. Reach out through email, WhatsApp,
+              phone, or the form.
             </p>
+
             <div className="flex flex-col gap-3">
               <a
-                href="mailto:abhirajvishwakarma04@gmail.com"
+                href="mailto:abhirajvishwakarma04@gmail.com?subject=Portfolio%20Inquiry"
                 className="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300"
               >
                 <svg className="h-5 w-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
                 </svg>
                 abhirajvishwakarma04@gmail.com
               </a>
+
               <a
-                href="https://wa.me/919792288180"
+                href="https://wa.me/919792288180?text=Hi%20Abhiraj,%20I%20came%20across%20your%20portfolio."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-slate-400 hover:text-teal-400"
@@ -90,17 +122,24 @@ export default function Contact() {
                 </svg>
                 WhatsApp: +91 9792288180
               </a>
+
               <a
                 href="tel:+919792288180"
                 className="inline-flex items-center gap-2 text-slate-400 hover:text-teal-400"
               >
                 <svg className="h-5 w-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  />
                 </svg>
                 Call: +91 9792288180
               </a>
             </div>
           </motion.div>
+
           <motion.form
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -123,6 +162,7 @@ export default function Contact() {
                 placeholder="Your name"
               />
             </div>
+
             <div>
               <label htmlFor="email" className="mb-1 block text-sm font-medium text-slate-300">
                 Email
@@ -138,6 +178,7 @@ export default function Contact() {
                 placeholder="you@example.com"
               />
             </div>
+
             <div>
               <label htmlFor="message" className="mb-1 block text-sm font-medium text-slate-300">
                 Message
@@ -145,35 +186,36 @@ export default function Contact() {
               <textarea
                 id="message"
                 name="message"
-                rows={4}
+                rows={5}
                 required
                 value={formData.message}
                 onChange={handleChange}
                 className="w-full resize-none rounded-lg border border-slate-700 bg-slate-800/50 px-4 py-3 text-slate-100 placeholder-slate-500 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
-                placeholder="Your message"
+                placeholder="Write your message here..."
               />
             </div>
+
             {!FORMSPREE_ENDPOINT && (
               <p className="rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-sm text-amber-200">
-                Add <code className="rounded bg-amber-500/20 px-1">VITE_FORMSPREE_ID</code> in <code className="rounded bg-amber-500/20 px-1">.env</code> to enable the form. Get your form ID at{' '}
-                <a href="https://formspree.io" target="_blank" rel="noopener noreferrer" className="underline hover:text-amber-100">formspree.io</a>.
+                <code className="rounded bg-amber-500/20 px-1">VITE_FORMSPREE_ID</code> is not set. The form will
+                open your email client instead.
               </p>
             )}
+
+            {status === 'success' && (
+              <p className="text-sm text-emerald-400">Thanks — your message was sent successfully.</p>
+            )}
+
             {status === 'error' && (
-              <p className="text-sm text-red-400">
-                Something went wrong. Please email me directly or try again.
-              </p>
+              <p className="text-sm text-red-400">Something went wrong. Please try email or WhatsApp directly.</p>
             )}
+
             <button
               type="submit"
-              disabled={status === 'sending' || !FORMSPREE_ENDPOINT}
-              className="w-full rounded-lg border border-teal-500/50 bg-teal-500/10 py-3 font-medium text-teal-400 transition hover:border-teal-400 hover:bg-teal-500/20 disabled:opacity-60"
+              disabled={status === 'sending'}
+              className="w-full rounded-lg border border-teal-500/50 bg-teal-500/10 py-3 font-medium text-teal-400 transition hover:border-teal-400 hover:bg-teal-500/20 disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {status === 'sending'
-                ? 'Sending…'
-                : status === 'success'
-                  ? 'Thanks — message received'
-                  : 'Send message'}
+              {status === 'sending' ? 'Sending…' : 'Send message'}
             </button>
           </motion.form>
         </div>

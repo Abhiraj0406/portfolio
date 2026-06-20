@@ -2,37 +2,37 @@ import { motion } from 'framer-motion';
 
 const PROJECTS = [
   {
+    name: 'Sensor Data Calibration & Management System',
+    bullets: [
+      'Internal engineering application for calibration workflow automation and sensor data management.',
+      'Contributed to backend development using Laravel first and later FastAPI during migration.',
+      'Built REST APIs, database operations, authentication flows, and support for dashboard integration.',
+    ],
+    stack: ['Laravel', 'PHP', 'Python', 'FastAPI', 'PostgreSQL', 'Docker', 'Keycloak', 'React'],
+    repo: null,
+    live: null,
+  },
+  {
+    name: 'Internal Financial Dashboard System',
+    bullets: [
+      'Internal dashboard for structured financial and operational reporting.',
+      'Developed FastAPI APIs with pagination, filtering, and data handling for larger datasets.',
+      'Supported React and TypeScript integration, backend testing, and documentation.',
+    ],
+    stack: ['Python', 'FastAPI', 'PostgreSQL', 'React', 'TypeScript', 'Docker'],
+    repo: null,
+    live: null,
+  },
+  {
     name: 'ExploreHub – Web Data Discovery Platform',
     bullets: [
       'Full-stack platform that discovers and presents structured web data.',
       'Built backend APIs with NestJS and integrated them with a Next.js frontend.',
-      'Implemented web scraping workflows to collect and normalise data from multiple sources.',
+      'Implemented scraping workflows to collect and normalize data from multiple sources.',
     ],
     stack: ['Next.js', 'NestJS', 'Web Scraping'],
     repo: 'https://github.com/Abhiraj0406/ExploreHub',
     live: 'https://explore-hub-neon.vercel.app/',
-  },
-  {
-    name: 'Sensor Calibration System',
-    bullets: [
-      'Internal engineering system for sensor calibration used in production workflows.',
-      'Developed Python FastAPI backend with PostgreSQL for storing and processing calibration datasets.',
-      'Built React-based UI and integrated Keycloak for authentication and role-based access.',
-    ],
-    stack: ['Python', 'FastAPI', 'PostgreSQL', 'React', 'Keycloak'],
-    repo: null,
-    live: null,
-  },
-  {
-    name: 'Financial Dashboard',
-    bullets: [
-      'APIs and frontend for exploring internal financial metrics and reports.',
-      'Implemented FastAPI endpoints backed by PostgreSQL with pagination and filters.',
-      'Connected React UI components to backend APIs for structured data views.',
-    ],
-    stack: ['Python', 'FastAPI', 'PostgreSQL', 'React'],
-    repo: null,
-    live: null,
   },
 ];
 
@@ -49,6 +49,7 @@ export default function FeaturedProjects() {
         >
           Featured Projects
         </motion.h2>
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -56,8 +57,9 @@ export default function FeaturedProjects() {
           transition={{ duration: 0.4, delay: 0.05 }}
           className="mb-12 text-2xl font-semibold text-slate-100 sm:text-3xl"
         >
-          Full stack & backend work
+          Backend work and internal systems
         </motion.p>
+
         <div className="grid gap-6 lg:grid-cols-2">
           {PROJECTS.map((project, i) => (
             <motion.article
@@ -69,6 +71,7 @@ export default function FeaturedProjects() {
               className="flex flex-col rounded-xl border border-slate-800 bg-slate-800/20 p-6 shadow-sm shadow-slate-950/40 transition hover:border-teal-500/40 hover:shadow-teal-500/20"
             >
               <h3 className="text-lg font-semibold text-slate-100">{project.name}</h3>
+
               <ul className="mt-3 flex-1 space-y-1.5 text-sm leading-relaxed text-slate-400">
                 {project.bullets.map((bullet) => (
                   <li key={bullet} className="flex gap-2">
@@ -77,18 +80,16 @@ export default function FeaturedProjects() {
                   </li>
                 ))}
               </ul>
+
               <div className="mt-4 flex flex-wrap gap-2">
                 {project.stack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-full bg-slate-700/80 px-3 py-1 text-xs text-slate-100"
-                  >
+                  <span key={tech} className="rounded-full bg-slate-700/80 px-3 py-1 text-xs text-slate-100">
                     {tech}
                   </span>
                 ))}
               </div>
+
               <div className="mt-4 flex flex-wrap gap-3">
-                {/* Live demo button */}
                 <a
                   href={project.live || '#'}
                   target={project.live ? '_blank' : undefined}
@@ -103,7 +104,7 @@ export default function FeaturedProjects() {
                   Live Demo
                   {!project.live && <span className="text-[10px]">(internal)</span>}
                 </a>
-                {/* GitHub button */}
+
                 <a
                   href={project.repo || '#'}
                   target={project.repo ? '_blank' : undefined}

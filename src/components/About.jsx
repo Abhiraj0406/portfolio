@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 
 const SUMMARY = [
-  'Backend Developer with 1 year of experience building production-ready REST APIs and internal tools using Python (FastAPI) and PostgreSQL.',
-  'Strong in backend architecture, database design, authentication, and Docker-based development. Worked on sensor calibration software and internal financial dashboards at Encardio-Rite, developing REST APIs and backend logic that improved workflow accuracy by ~50%.',
-  'Experienced with Docker-based development setups and authentication using Keycloak (RBAC). Solid understanding of system workflows, documentation, and problem-solving. NATS Software Apprentice and actively seeking opportunities as a backend developer with exposure to full-stack development.',
+  'Backend Developer with hands-on experience in PHP (Laravel), Python (FastAPI), REST API development, MySQL, PostgreSQL, and Docker.',
+  'Worked on internal engineering and financial applications at Encardio-Rite, contributing to backend logic, database design, authentication, and API integration.',
+  'Comfortable working with Keycloak-based access control, documentation, testing, and migration of applications from Laravel to FastAPI.',
 ];
 
 export default function About() {
@@ -19,6 +19,7 @@ export default function About() {
         >
           About
         </motion.h2>
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -26,8 +27,9 @@ export default function About() {
           transition={{ duration: 0.4, delay: 0.05 }}
           className="mb-10 text-2xl font-semibold text-slate-100 sm:text-3xl"
         >
-          Backend-focused, detail-oriented
+          Backend-focused, adaptable, and practical
         </motion.p>
+
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -35,8 +37,8 @@ export default function About() {
           transition={{ duration: 0.4, delay: 0.1 }}
           className="space-y-5 text-slate-300"
         >
-          {SUMMARY.map((para, i) => (
-            <p key={i} className="leading-relaxed">
+          {SUMMARY.map((para) => (
+            <p key={para} className="leading-relaxed">
               {para}
             </p>
           ))}

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-const RESUME_URL = `${import.meta.env.BASE_URL}Abhiraj_Vishwakarma_Resume.pdf`;
+const RESUME_URL = `${import.meta.env.BASE_URL}Abhiraj_resume.pdf`;
 
 export default function Hero() {
   return (
@@ -44,7 +44,7 @@ export default function Hero() {
           {/* Primary: Download Resume */}
           <a
             href={RESUME_URL}
-            download="Abhiraj_Vishwakarma_Resume.pdf"
+            download="Abhiraj_resume.pdf"
             className="inline-flex items-center gap-2 rounded-full bg-teal-500/90 px-7 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-teal-500/30 transition hover:bg-teal-400 hover:shadow-teal-400/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
           >
             <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
