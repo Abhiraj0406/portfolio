@@ -4,44 +4,43 @@ const SKILL_GROUPS = [
   {
     title: 'Languages',
     skills: [
-      { name: 'Python', desc: 'Primary language for backend and scripting' },
-      { name: 'PHP', desc: 'Laravel-based backend applications' },
-      { name: 'JavaScript', desc: 'Frontend logic and Node.js scripts' },
-      { name: 'TypeScript', desc: 'Typed React / Next.js and backend code' },
+      { name: 'PHP', desc: 'Backend development using Laravel framework' },
+      { name: 'Python', desc: 'Backend development and automation scripts' },
+      { name: 'JavaScript', desc: 'Frontend logic and client-side scripting' },
+      { name: 'TypeScript', desc: 'Typed frontend and backend development' },
     ],
   },
   {
     title: 'Backend',
     skills: [
-      { name: 'FastAPI', desc: 'High-performance Python APIs and services' },
-      { name: 'Laravel', desc: 'RESTful APIs and server-side applications' },
-      { name: 'Node.js', desc: 'API services and tooling' },
-      { name: 'REST APIs', desc: 'Design, versioning, and best practices' },
+      { name: 'Laravel', desc: 'Backend applications and RESTful API development' },
+      { name: 'FastAPI', desc: 'High-performance REST API development in Python' },
+      { name: 'REST APIs', desc: 'API design, versioning, and integration' },
       { name: 'Keycloak (RBAC)', desc: 'Authentication and role-based access control' },
     ],
   },
   {
     title: 'Frontend',
     skills: [
-      { name: 'React', desc: 'SPA and dashboard interfaces' },
-      { name: 'Next.js', desc: 'Full stack React apps with SSR' },
+      { name: 'React', desc: 'Component-based UI and dashboard interfaces' },
+      { name: 'Next.js', desc: 'Full-stack React applications with SSR' },
     ],
   },
   {
     title: 'Databases',
     skills: [
-      { name: 'PostgreSQL', desc: 'Schema design and query optimisation' },
-      { name: 'MySQL', desc: 'Relational data and reporting' },
+      { name: 'PostgreSQL', desc: 'Schema design and query optimization' },
+      { name: 'MySQL', desc: 'Relational databases and reporting systems' },
     ],
   },
   {
-    title: 'Tools',
+    title: 'Tools & DevOps',
     skills: [
-      { name: 'Docker', desc: 'Containerised dev and deployment' },
-      { name: 'Git', desc: 'Version control and collaboration' },
-      { name: 'Postman', desc: 'API testing and collections' },
-      { name: 'Azure DevOps', desc: 'Boards, pipelines, and project tracking' },
-      { name: 'CI/CD workflows', desc: 'Automated testing and deployment pipelines' },
+      { name: 'Docker', desc: 'Containerized development and deployment' },
+      { name: 'Git', desc: 'Version control and collaborative development' },
+      { name: 'Postman', desc: 'API testing and validation' },
+      { name: 'Azure DevOps', desc: 'Project tracking and CI/CD pipelines' },
+      { name: 'CI/CD', desc: 'Automated build, test, and deployment workflows' },
       { name: 'Cursor AI', desc: 'AI-assisted development workflow' },
     ],
   },
@@ -64,6 +63,7 @@ export default function TechStack() {
   return (
     <section id="tech" className="border-t border-slate-800 px-6 py-20 sm:py-24">
       <div className="mx-auto max-w-5xl">
+
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -73,6 +73,7 @@ export default function TechStack() {
         >
           Tech Stack
         </motion.h2>
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -80,8 +81,9 @@ export default function TechStack() {
           transition={{ duration: 0.4, delay: 0.05 }}
           className="mb-12 text-2xl font-semibold text-slate-100 sm:text-3xl"
         >
-          Full stack technologies
+          Full Stack technologies with backend specialization
         </motion.p>
+
         <div className="space-y-10">
           {SKILL_GROUPS.map((group, gIdx) => (
             <motion.div
@@ -91,7 +93,10 @@ export default function TechStack() {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.4, delay: gIdx * 0.05 }}
             >
-              <h3 className="mb-4 text-sm font-medium text-slate-400">{group.title}</h3>
+              <h3 className="mb-4 text-sm font-medium text-slate-400">
+                {group.title}
+              </h3>
+
               <motion.ul
                 variants={container}
                 initial="hidden"
@@ -105,8 +110,12 @@ export default function TechStack() {
                     variants={item}
                     className="rounded-xl border border-slate-800 bg-slate-800/30 p-4 transition hover:border-teal-500/40 hover:bg-slate-800/50"
                   >
-                    <span className="font-medium text-slate-100">{skill.name}</span>
-                    <p className="mt-0.5 text-sm text-slate-400">{skill.desc}</p>
+                    <span className="font-medium text-slate-100">
+                      {skill.name}
+                    </span>
+                    <p className="mt-0.5 text-sm text-slate-400">
+                      {skill.desc}
+                    </p>
                   </motion.li>
                 ))}
               </motion.ul>
