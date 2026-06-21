@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-const RESUME_URL = `${import.meta.env.BASE_URL}Abhiraj_Vishwakarma_Resume.pdf`;
+const RESUME_URL = `${import.meta.env.BASE_URL}Abhiraj_Vishwakarma_resume.pdf`;
 
 export default function Hero() {
   return (
