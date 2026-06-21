@@ -7,43 +7,57 @@ const PROJECT_GROUPS = [
       {
         name: 'Sensor Data Calibration & Management System',
         bullets: [
-          'Enterprise internal system for sensor calibration workflow automation and structured data management.',
-          'Worked on backend development using Laravel and contributed to migration and enhancements in FastAPI.',
-          'Developed REST APIs, database models, authentication flows, and dashboard integration support.',
+          'Contributed to backend API development for an internal enterprise sensor calibration workflow system.',
+          'Worked on specific backend modules using Laravel; supported migration of selected parts to FastAPI.',
+          'Worked within a team using PostgreSQL, Docker containers, and Keycloak-based authentication.',
         ],
-        stack: ['Laravel', 'PHP', 'Python', 'FastAPI', 'PostgreSQL', 'Docker', 'Keycloak', 'React'],
+        stack: ['Laravel', 'PHP', 'FastAPI', 'Python', 'PostgreSQL', 'Docker'],
         repo: null,
         live: null,
       },
       {
         name: 'Internal Financial Dashboard System',
         bullets: [
-          'Internal reporting system for financial and operational data visualization and analysis.',
-          'Built FastAPI-based APIs with pagination, filtering, and optimized handling of large datasets.',
-          'Supported frontend integration (React + TypeScript), backend testing, and API documentation.',
+          'Supported FastAPI-based REST API development with filtering, pagination, and structured data handling.',
+          'Contributed to backend testing and helped with frontend integration support using React.',
+          'Assisted in maintaining internal API documentation for team use.',
         ],
-        stack: ['PHP', 'Python', 'FastAPI', 'PostgreSQL', 'React', 'TypeScript', 'Docker'],
+        stack: ['FastAPI', 'Python', 'PostgreSQL', 'React', 'Docker'],
         repo: null,
         live: null,
       },
     ],
   },
-
   {
     section: 'Assignment / Independent Project',
     projects: [
       {
-        name: 'ExploreHub – Web Data Discovery Platform',
+        name: 'ExploreHub — Web Data Discovery Platform',
         bullets: [
-          'Company assignment project for web data scraping and structured data exploration.',
-          'Built backend APIs using NestJS and integrated them with a Next.js frontend.',
-          'Designed scraping workflows for extracting, cleaning, and normalizing hierarchical web data.',
-          'Deployed backend on Railway using Docker containers and frontend on Vercel.',
-          'Developed using an AI-assisted workflow (Cursor) to speed up implementation and prototyping.',
+          'Company assignment to explore NestJS and Next.js by building a web data scraping platform.',
+          'Implemented backend scraping workflows and connected them to a Next.js frontend.',
+          'Deployed backend on Railway using Docker and frontend on Vercel.',
         ],
-        stack: ['Next.js', 'NestJS', 'Web Scraping', 'Docker', 'PostgreSQL', 'Redis', 'Railway', 'Vercel'],
+        stack: ['Next.js', 'NestJS', 'Docker', 'PostgreSQL', 'Railway', 'Vercel'],
         repo: 'https://github.com/Abhiraj0406/ExploreHub',
         live: 'https://explore-hub-neon.vercel.app/',
+      },
+    ],
+  },
+  {
+    section: 'Personal Project (In Progress)',
+    projects: [
+      {
+        name: 'Inventory & Invoice Management System',
+        inProgress: true,
+        bullets: [
+          'Building a personal project to deepen Laravel knowledge and grow toward full stack development.',
+          'Backend: Laravel REST APIs, MySQL, Role-Based Access Control (RBAC), Sanctum authentication.',
+          'Planning a React frontend — working toward end-to-end full stack ownership of this project.',
+        ],
+        stack: ['Laravel', 'PHP', 'MySQL', 'REST APIs', 'React (planned)'],
+        repo: null,
+        live: null,
       },
     ],
   },
@@ -75,7 +89,6 @@ export default function FeaturedProjects() {
         </motion.p>
 
         <div className="space-y-12">
-
           {PROJECT_GROUPS.map((group) => (
             <div key={group.section}>
               <h3 className="mb-6 text-sm font-medium text-slate-400 uppercase tracking-widest">
@@ -90,13 +103,24 @@ export default function FeaturedProjects() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-60px' }}
                     transition={{ duration: 0.4, delay: i * 0.1 }}
-                    className="flex flex-col rounded-xl border border-slate-800 bg-slate-800/20 p-6 shadow-sm shadow-slate-950/40 transition hover:border-teal-500/40 hover:shadow-teal-500/20"
+                    className={`flex flex-col rounded-xl border p-6 shadow-sm transition ${
+                      project.inProgress
+                        ? 'border-teal-500/30 bg-teal-500/5 shadow-teal-500/10 hover:border-teal-400/50'
+                        : 'border-slate-800 bg-slate-800/20 shadow-slate-950/40 hover:border-teal-500/40 hover:shadow-teal-500/20'
+                    }`}
                   >
-                    <h4 className="text-lg font-semibold text-slate-100">
-                      {project.name}
-                    </h4>
+                    <div className="mb-3 flex items-start justify-between gap-2">
+                      <h4 className="text-lg font-semibold text-slate-100">
+                        {project.name}
+                      </h4>
+                      {project.inProgress && (
+                        <span className="shrink-0 rounded-full border border-teal-500/40 bg-teal-500/10 px-2.5 py-0.5 text-xs text-teal-400">
+                          In Progress
+                        </span>
+                      )}
+                    </div>
 
-                    <ul className="mt-3 flex-1 space-y-1.5 text-sm leading-relaxed text-slate-400">
+                    <ul className="flex-1 space-y-1.5 text-sm leading-relaxed text-slate-400">
                       {project.bullets.map((bullet) => (
                         <li key={bullet} className="flex gap-2">
                           <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-teal-500" />
@@ -130,7 +154,9 @@ export default function FeaturedProjects() {
                       >
                         Live Demo
                         {!project.live && (
-                          <span className="text-[10px]">(internal)</span>
+                          <span className="text-[10px]">
+                            {project.inProgress ? '(building)' : '(internal)'}
+                          </span>
                         )}
                       </a>
 
@@ -147,7 +173,9 @@ export default function FeaturedProjects() {
                       >
                         GitHub
                         {!project.repo && (
-                          <span className="text-[10px]">(internal)</span>
+                          <span className="text-[10px]">
+                            {project.inProgress ? '(soon)' : '(internal)'}
+                          </span>
                         )}
                       </a>
                     </div>
@@ -156,7 +184,6 @@ export default function FeaturedProjects() {
               </div>
             </div>
           ))}
-
         </div>
       </div>
     </section>

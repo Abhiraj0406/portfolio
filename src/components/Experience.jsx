@@ -2,24 +2,26 @@ import { motion } from 'framer-motion';
 
 const JOBS = [
   {
-    title: 'Software Apprentice – Full Stack Developer',
-    company: 'Encardio-Rite Pvt Ltd',
+    title: 'Software Apprentice — Backend Developer',
+    company: 'Encardio-Rite Pvt. Ltd.',
     period: 'Jan 2025 – Jan 2026',
+    tag: 'NATS Apprenticeship',
     highlights: [
-      'Worked as a Full Stack Developer on internal engineering systems.',
-      'Built Sensor Calibration System using Laravel & later contributed to FastAPI migration.',
-      'Developed REST APIs for Financial Dashboard using backend technologies.',
-      'Worked with PostgreSQL, Docker, and Keycloak-based authentication systems.',
+      'Contributed to backend API development for an internal Sensor Calibration & Management system built with Laravel.',
+      'Supported the migration of selected backend modules from Laravel to FastAPI as per evolving project requirements.',
+      'Built and tested REST APIs with PostgreSQL database; worked within a Docker-based development environment.',
+      'Used Keycloak-based authentication system and Azure DevOps for task tracking and team collaboration.',
     ],
   },
   {
     title: 'Full Stack Developer Intern',
     company: 'Zidio Development',
     period: 'Aug 2024 – Oct 2024',
+    tag: 'Internship',
     highlights: [
-      'Worked on full-stack web applications using MERN stack.',
+      'Worked on a full-stack web application as part of a MERN stack team.',
       'Developed and integrated REST APIs with frontend components.',
-      'Fixed bugs and improved performance across frontend and backend systems.',
+      'Contributed to bug fixes and performance improvements across the application.',
     ],
   },
 ];
@@ -60,19 +62,25 @@ export default function Experience() {
             >
               <span className="absolute -left-2 top-6 h-3 w-3 rounded-full bg-teal-500" />
 
-              <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <h3 className="text-base font-semibold text-slate-100 sm:text-lg">
-                  {job.title}
-                </h3>
-                <span className="text-sm text-teal-400">{job.period}</span>
+              <div className="flex flex-wrap items-start justify-between gap-2">
+                <div>
+                  <h3 className="text-base font-semibold text-slate-100 sm:text-lg">
+                    {job.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-slate-400">{job.company}</p>
+                </div>
+                <div className="flex flex-col items-end gap-1.5">
+                  <span className="text-sm text-teal-400">{job.period}</span>
+                  <span className="rounded-full border border-slate-700 bg-slate-800/60 px-2 py-0.5 text-xs text-slate-500">
+                    {job.tag}
+                  </span>
+                </div>
               </div>
-
-              <p className="mt-1 text-sm text-slate-400">{job.company}</p>
 
               <ul className="mt-4 space-y-2 text-sm text-slate-300">
                 {job.highlights.map((h) => (
                   <li key={h} className="flex gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-teal-500" />
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-teal-500" />
                     <span>{h}</span>
                   </li>
                 ))}
