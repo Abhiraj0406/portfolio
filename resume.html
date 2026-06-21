@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Abhiraj Vishwakarma Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: white;
+            color: #111827;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            margin: 0 auto;
+            padding: 10mm 15mm;
+            box-sizing: border-box;
+            background: white;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #1f2937;
+        }
+
+        .section-title {
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border-bottom: 1.5px solid #e5e7eb;
+            padding-bottom: 0.2rem;
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.05em;
+            color: #374151;
+        }
+
+        p,
+        li {
+            font-size: 0.82rem;
+            line-height: 1.35;
+            color: #4b5563;
+        }
+
+        li {
+            position: relative;
+            padding-left: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #9ca3af;
+        }
+
+        /* Utility to ensure single page printing */
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .page {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 12mm 15mm;
+                box-shadow: none;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="page shadow-xl border border-gray-200">
+        <!-- HEADER -->
+        <header class="text-center mb-6">
+            <h1 class="text-3xl font-bold text-gray-900 mb-1">Abhiraj Vishwakarma</h1>
+            <p class="text-[0.9rem] font-medium text-teal-600 mb-2">Backend Developer | Laravel · FastAPI | Aspiring
+                Full Stack</p>
+            <div class="flex justify-center gap-3 text-xs text-gray-500">
+                <span>📧 abhirajvishwakarma04@gmail.com</span>
+                <span>•</span>
+                <span>📞 +91 9792288180</span>
+                <span>•</span>
+                <span>🌐 <a href="https://abhiraj0406.github.io/portfolio/"
+                        class="text-teal-600">abhiraj0406.github.io/portfolio/</a></span>
+            </div>
+            <div class="flex justify-center gap-3 text-xs text-gray-500 mt-1">
+                <span>🔗 <a href="https://linkedin.com/in/abhiraj-vishwakarma-85304120b"
+                        class="text-teal-600">linkedin.com/in/abhiraj-vishwakarma-85304120b</a></span>
+            </div>
+        </header>
+
+        <!-- SUMMARY -->
+        <div class="mb-5">
+            <h2 class="section-title">Professional Summary</h2>
+            <p>Backend developer with 1 year of real-world experience building internal enterprise systems. Built and
+                deployed REST APIs, database schemas, and backend workflows at Encardio-Rite Pvt. Ltd. Strong expertise
+                in PHP (Laravel) and Python (FastAPI). Actively building React skills to transition into Full Stack
+                roles. Seeking backend opportunities to contribute immediately while continuing to grow full stack
+                capabilities.</p>
+        </div>
+
+        <!-- SKILLS -->
+        <div class="mb-5">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="text-[0.85rem] text-gray-600 leading-relaxed grid grid-cols-6 gap-y-1">
+                <div class="col-span-1 font-semibold text-gray-800">Backend:</div>
+                <div class="col-span-5">Laravel (PHP), FastAPI (Python), REST APIs, Sanctum Authentication</div>
+
+                <div class="col-span-1 font-semibold text-gray-800">Databases:</div>
+                <div class="col-span-5">MySQL, PostgreSQL</div>
+
+                <div class="col-span-1 font-semibold text-gray-800">Tools:</div>
+                <div class="col-span-5">Git, GitHub, Docker, Postman, Azure DevOps</div>
+
+                <div class="col-span-1 font-semibold text-gray-800">Exposure:</div>
+                <div class="col-span-5">React, TypeScript, Keycloak</div>
+            </div>
+        </div>
+
+        <!-- EXPERIENCE -->
+        <div class="mb-5">
+            <h2 class="section-title">Work Experience</h2>
+
+            <div class="mb-4">
+                <div class="flex justify-between items-baseline mb-0.5">
+                    <h3 class="text-[0.95rem] font-semibold text-gray-900">Software Apprentice — Backend Developer</h3>
+                    <span class="text-xs font-medium text-gray-500">Jan 2025 – Jan 2026</span>
+                </div>
+                <div class="flex justify-between items-baseline mb-2">
+                    <span class="text-sm font-medium text-teal-600">Encardio-Rite Pvt. Ltd.</span>
+                    <span class="text-xs text-gray-400 italic">NATS Apprenticeship</span>
+                </div>
+                <ul class="list-none">
+                    <li>Contributed to backend API development for an internal Sensor Calibration & Management system
+                        built with Laravel.</li>
+                    <li>Supported backend API development for an Internal Financial Dashboard using FastAPI.</li>
+                    <li>Supported the migration of selected backend modules from Laravel to FastAPI as per project
+                        requirements.</li>
+                    <li>Built and tested REST APIs using PostgreSQL; worked within a Docker-based development
+                        environment.</li>
+                    <li>Used Keycloak-based authentication and Azure DevOps for task tracking and team collaboration.
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="flex justify-between items-baseline mb-0.5">
+                    <h3 class="text-[0.95rem] font-semibold text-gray-900">Full Stack Developer Intern</h3>
+                    <span class="text-xs font-medium text-gray-500">Aug 2024 – Oct 2024</span>
+                </div>
+                <div class="flex justify-between items-baseline mb-2">
+                    <span class="text-sm font-medium text-teal-600">Zidio Development</span>
+                </div>
+                <ul class="list-none">
+                    <li>Developed a full-stack web application as part of a MERN stack team.</li>
+                    <li>Built and integrated REST APIs with frontend components.</li>
+                    <li>Contributed to bug fixes and performance improvements across the application.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PROJECTS -->
+        <div class="mb-5">
+            <h2 class="section-title">Encardio-Rite Projects</h2>
+            <div class="grid grid-cols-1 gap-1.5">
+                <div class="flex justify-between items-baseline">
+                    <h3 class="text-[0.85rem] font-semibold text-gray-900">Sensor Data Calibration & Management System</h3>
+                    <p class="text-[0.75rem] text-gray-500 font-medium">Laravel, FastAPI, PostgreSQL, Docker</p>
+                </div>
+                <div class="flex justify-between items-baseline">
+                    <h3 class="text-[0.85rem] font-semibold text-gray-900">Internal Financial Dashboard</h3>
+                    <p class="text-[0.75rem] text-gray-500 font-medium">FastAPI, Python, PostgreSQL, React, Docker</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- EDUCATION & CERTIFICATIONS -->
+        <div class="grid grid-cols-2 gap-6">
+            <div>
+                <h2 class="section-title">Education</h2>
+                <h3 class="text-[0.85rem] font-semibold text-gray-900">B.Tech in Computer Science & Engineering</h3>
+                <p class="text-[0.8rem] text-gray-600">Dr. A.P.J. Abdul Kalam Technical University (AKTU)</p>
+                <p class="text-[0.8rem] text-gray-500 mt-1">Graduated: July 2024 • CGPA: 7.66 / 10</p>
+            </div>
+            <div>
+                <h2 class="section-title">Certifications</h2>
+                <ul class="list-none text-[0.8rem]">
+                    <li class="mb-1"><span class="font-semibold text-gray-800">NATS Software Apprentice</span> <span
+                            class="text-gray-500">— Encardio-Rite</span></li>
+                    <li class="mb-1"><span class="font-semibold text-gray-800">Web Development Internship</span> <span
+                            class="text-gray-500">— Zidio</span></li>
+                    <li><span class="font-semibold text-gray-800">Web Dev & Job Preparation</span> <span
+                            class="text-gray-500">— Internshala</span></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
