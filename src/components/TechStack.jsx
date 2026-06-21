@@ -4,44 +4,47 @@ const SKILL_GROUPS = [
   {
     title: 'Languages',
     skills: [
-      { name: 'PHP', desc: 'Backend development using Laravel framework' },
-      { name: 'Python', desc: 'Backend development and automation scripts' },
+      { name: 'PHP', desc: 'Primary language — Laravel backend development' },
+      { name: 'Python', desc: 'FastAPI backend development and scripting' },
       { name: 'JavaScript', desc: 'Frontend logic and client-side scripting' },
-      { name: 'TypeScript', desc: 'Typed frontend and backend development' },
     ],
   },
   {
     title: 'Backend',
     skills: [
-      { name: 'Laravel', desc: 'Backend applications and RESTful API development' },
-      { name: 'FastAPI', desc: 'High-performance REST API development in Python' },
-      { name: 'REST APIs', desc: 'API design, versioning, and integration' },
-      { name: 'Keycloak (RBAC)', desc: 'Authentication and role-based access control' },
-    ],
-  },
-  {
-    title: 'Frontend',
-    skills: [
-      { name: 'React', desc: 'Component-based UI and dashboard interfaces' },
-      { name: 'Next.js', desc: 'Full-stack React applications with SSR' },
+      { name: 'Laravel', desc: 'Primary framework — routing, Eloquent ORM, REST APIs, Sanctum' },
+      { name: 'FastAPI', desc: 'Used in production at Encardio-Rite, actively growing' },
+      { name: 'REST APIs', desc: 'API design, resources, versioning, and integration' },
     ],
   },
   {
     title: 'Databases',
     skills: [
-      { name: 'PostgreSQL', desc: 'Schema design and query optimization' },
-      { name: 'MySQL', desc: 'Relational databases and reporting systems' },
+      { name: 'MySQL', desc: 'Schema design, queries, joins, relationships' },
+      { name: 'PostgreSQL', desc: 'Used in production projects — basic to intermediate' },
+    ],
+  },
+  {
+    title: 'Frontend',
+    skills: [
+      { name: 'React', desc: 'Basic components — used in support role on projects' },
     ],
   },
   {
     title: 'Tools & DevOps',
     skills: [
-      { name: 'Docker', desc: 'Containerized development and deployment' },
-      { name: 'Git', desc: 'Version control and collaborative development' },
-      { name: 'Postman', desc: 'API testing and validation' },
-      { name: 'Azure DevOps', desc: 'Project tracking and CI/CD pipelines' },
-      { name: 'CI/CD', desc: 'Automated build, test, and deployment workflows' },
-      { name: 'Cursor AI', desc: 'AI-assisted development workflow' },
+      { name: 'Git & GitHub', desc: 'Daily version control and collaborative development' },
+      { name: 'Docker', desc: 'Containerised development — used at work, understand basics' },
+      { name: 'Postman', desc: 'API testing and endpoint validation' },
+      { name: 'Azure DevOps', desc: 'Task tracking and team collaboration' },
+    ],
+  },
+  {
+    title: 'Exposure / Familiar With',
+    exposure: true,
+    skills: [
+      { name: 'TypeScript', desc: 'Familiar — used lightly in project support' },
+      { name: 'Keycloak', desc: 'Worked with it at Encardio-Rite — still learning internals' },
     ],
   },
 ];
@@ -79,9 +82,19 @@ export default function TechStack() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.4, delay: 0.05 }}
-          className="mb-12 text-2xl font-semibold text-slate-100 sm:text-3xl"
+          className="mb-3 text-2xl font-semibold text-slate-100 sm:text-3xl"
         >
-          Full Stack technologies with backend specialization
+          Backend-focused, growing toward Full Stack
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.4, delay: 0.08 }}
+          className="mb-12 text-sm text-slate-500"
+        >
+          Only listing skills I can honestly discuss in an interview. "Exposure" means I've used it but am still learning.
         </motion.p>
 
         <div className="space-y-10">
@@ -93,9 +106,16 @@ export default function TechStack() {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.4, delay: gIdx * 0.05 }}
             >
-              <h3 className="mb-4 text-sm font-medium text-slate-400">
-                {group.title}
-              </h3>
+              <div className="mb-4 flex items-center gap-3">
+                <h3 className={`text-sm font-medium ${group.exposure ? 'text-slate-500' : 'text-slate-400'}`}>
+                  {group.title}
+                </h3>
+                {group.exposure && (
+                  <span className="rounded-full border border-slate-700 px-2 py-0.5 text-xs text-slate-600">
+                    not interview-ready
+                  </span>
+                )}
+              </div>
 
               <motion.ul
                 variants={container}
@@ -108,12 +128,16 @@ export default function TechStack() {
                   <motion.li
                     key={skill.name}
                     variants={item}
-                    className="rounded-xl border border-slate-800 bg-slate-800/30 p-4 transition hover:border-teal-500/40 hover:bg-slate-800/50"
+                    className={`rounded-xl border p-4 transition ${
+                      group.exposure
+                        ? 'border-slate-800/60 bg-slate-900/40 opacity-70 hover:opacity-90'
+                        : 'border-slate-800 bg-slate-800/30 hover:border-teal-500/40 hover:bg-slate-800/50'
+                    }`}
                   >
-                    <span className="font-medium text-slate-100">
+                    <span className={`font-medium ${group.exposure ? 'text-slate-400' : 'text-slate-100'}`}>
                       {skill.name}
                     </span>
-                    <p className="mt-0.5 text-sm text-slate-400">
+                    <p className="mt-0.5 text-sm text-slate-500">
                       {skill.desc}
                     </p>
                   </motion.li>
