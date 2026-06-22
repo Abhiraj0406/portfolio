@@ -77,6 +77,9 @@ export default function About() {
             I work with MySQL and PostgreSQL for databases, Docker for containerised
             environments, Git for version control, and Postman for API testing. I understand
             REST API design and database modeling from actual project work — not just tutorials.
+            I also leverage Agentic AI tools (like Cursor AI and Antigravity) to accelerate
+            standard workflows, allowing me to build, debug, and ship code faster while 
+            maintaining deep technical understanding of the underlying architecture.
           </p>
 
           <p className="leading-relaxed font-medium text-teal-300/90">

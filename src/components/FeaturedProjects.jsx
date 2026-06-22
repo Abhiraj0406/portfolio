@@ -35,6 +35,7 @@ const PROJECT_GROUPS = [
         name: 'ExploreHub — Web Data Discovery Platform',
         bullets: [
           'Company assignment to explore NestJS and Next.js by building a web data scraping platform.',
+          'Accelerated backend prototyping and full-stack integration by leveraging Agentic AI tools (Cursor AI) within standard IDEs.',
           'Implemented backend scraping workflows and connected them to a Next.js frontend.',
           'Deployed backend on Railway using Docker and frontend on Vercel.',
         ],
@@ -103,11 +104,10 @@ export default function FeaturedProjects() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-60px' }}
                     transition={{ duration: 0.4, delay: i * 0.1 }}
-                    className={`flex flex-col rounded-xl border p-6 shadow-sm transition ${
-                      project.inProgress
-                        ? 'border-teal-500/30 bg-teal-500/5 shadow-teal-500/10 hover:border-teal-400/50'
-                        : 'border-slate-800 bg-slate-800/20 shadow-slate-950/40 hover:border-teal-500/40 hover:shadow-teal-500/20'
-                    }`}
+                    className={`flex flex-col rounded-xl border p-6 shadow-sm transition ${project.inProgress
+                      ? 'border-teal-500/30 bg-teal-500/5 shadow-teal-500/10 hover:border-teal-400/50'
+                      : 'border-slate-800 bg-slate-800/20 shadow-slate-950/40 hover:border-teal-500/40 hover:shadow-teal-500/20'
+                      }`}
                   >
                     <div className="mb-3 flex items-start justify-between gap-2">
                       <h4 className="text-lg font-semibold text-slate-100">
@@ -146,11 +146,10 @@ export default function FeaturedProjects() {
                         target={project.live ? '_blank' : undefined}
                         rel={project.live ? 'noopener noreferrer' : undefined}
                         aria-disabled={!project.live}
-                        className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-medium transition ${
-                          project.live
-                            ? 'border-teal-500/60 bg-teal-500/10 text-teal-300 hover:border-teal-400 hover:bg-teal-500/20 hover:text-teal-100'
-                            : 'cursor-not-allowed border-slate-700 bg-slate-800/40 text-slate-500'
-                        }`}
+                        className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-medium transition ${project.live
+                          ? 'border-teal-500/60 bg-teal-500/10 text-teal-300 hover:border-teal-400 hover:bg-teal-500/20 hover:text-teal-100'
+                          : 'cursor-not-allowed border-slate-700 bg-slate-800/40 text-slate-500'
+                          }`}
                       >
                         Live Demo
                         {!project.live && (
@@ -165,11 +164,10 @@ export default function FeaturedProjects() {
                         target={project.repo ? '_blank' : undefined}
                         rel={project.repo ? 'noopener noreferrer' : undefined}
                         aria-disabled={!project.repo}
-                        className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-medium transition ${
-                          project.repo
-                            ? 'border-slate-600 bg-slate-900/70 text-slate-200 hover:border-teal-500 hover:text-teal-300'
-                            : 'cursor-not-allowed border-slate-700 bg-slate-800/40 text-slate-500'
-                        }`}
+                        className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-medium transition ${project.repo
+                          ? 'border-slate-600 bg-slate-900/70 text-slate-200 hover:border-teal-500 hover:text-teal-300'
+                          : 'cursor-not-allowed border-slate-700 bg-slate-800/40 text-slate-500'
+                          }`}
                       >
                         GitHub
                         {!project.repo && (

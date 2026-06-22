@@ -40,6 +40,13 @@ const SKILL_GROUPS = [
     ],
   },
   {
+    title: 'Code Editors & Agentic AI',
+    skills: [
+      { name: 'Code Editors', desc: 'VS Code, Cursor, PyCharm, Antigravity' },
+      { name: 'Agentic AI Tools', desc: 'Cursor AI, Antigravity — used to accelerate standard workflows' },
+    ],
+  },
+  {
     title: 'Exposure / Familiar With',
     exposure: true,
     skills: [
@@ -128,11 +135,10 @@ export default function TechStack() {
                   <motion.li
                     key={skill.name}
                     variants={item}
-                    className={`rounded-xl border p-4 transition ${
-                      group.exposure
+                    className={`rounded-xl border p-4 transition ${group.exposure
                         ? 'border-slate-800/60 bg-slate-900/40 opacity-70 hover:opacity-90'
                         : 'border-slate-800 bg-slate-800/30 hover:border-teal-500/40 hover:bg-slate-800/50'
-                    }`}
+                      }`}
                   >
                     <span className={`font-medium ${group.exposure ? 'text-slate-400' : 'text-slate-100'}`}>
                       {skill.name}
