@@ -46,12 +46,12 @@ const PROJECT_GROUPS = [
       {
         name: 'ExploreHub — Web Data Discovery Platform',
         bullets: [
-          'Built a web data scraping and discovery platform as a company assignment to explore full-stack integration.',
-          'Developed the Laravel/PHP backend for scraping workflows and connected it to a Next.js frontend.',
-          'Leveraged Agentic AI tools (Cursor AI, Antigravity) within standard IDEs to accelerate backend prototyping and delivery.',
-          'Deployed the backend on Railway using Docker and the frontend on Vercel.',
+          'Built a full-stack web scraping application as an assignment by CodeVault to explore e-commerce product data.',
+          'Developed the backend using NestJS, TypeScript, and PostgreSQL, integrated with a Redis cache and running in Docker.',
+          'Implemented web scraping workflows using Crawlee and Playwright, and connected the API to a Next.js frontend.',
+          'Deployed the backend on Railway and the frontend on Vercel.',
         ],
-        stack: ['Next.js', 'Laravel', 'PHP', 'Docker', 'MySQL', 'Railway', 'Vercel'],
+        stack: ['Next.js', 'NestJS', 'TypeScript', 'PostgreSQL', 'Redis', 'Crawlee', 'Docker'],
         repo: 'https://github.com/Abhiraj0406/ExploreHub',
         live: 'https://explore-hub-neon.vercel.app/',
       },
