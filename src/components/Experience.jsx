@@ -7,10 +7,10 @@ const JOBS = [
     period: 'Jan 2025 – Jan 2026',
     tag: 'NATS Apprenticeship',
     highlights: [
-      'Contributed to backend API development for an internal Sensor Calibration & Management system built with Laravel.',
-      'Supported the migration of selected backend modules from Laravel to FastAPI as per evolving project requirements.',
-      'Built and tested REST APIs with PostgreSQL database; worked within a Docker-based development environment.',
-      'Used Keycloak-based authentication system and Azure DevOps for task tracking and team collaboration.',
+      'Led backend development of the Sensor Data Calibration & Management System under senior developer guidance — contributing from initial API design and database schema through to final deployment.',
+      'Built and tested REST APIs using Laravel and PHP with MySQL; worked within a Docker-based development environment.',
+      'Supported Laravel-based REST API development for the Internal Financial Dashboard, implementing filtering, pagination, and structured data handling.',
+      'Collaborated using Keycloak-based authentication and Azure DevOps for task tracking, code reviews, and team coordination.',
     ],
   },
   {
@@ -19,8 +19,8 @@ const JOBS = [
     period: 'Aug 2024 – Oct 2024',
     tag: 'Internship',
     highlights: [
-      'Worked on a full-stack web application as part of a MERN stack team.',
-      'Developed and integrated REST APIs with frontend components.',
+      'Developed and maintained a full-stack web application as part of a cross-functional team.',
+      'Built and integrated REST API endpoints with frontend components.',
       'Contributed to bug fixes and performance improvements across the application.',
     ],
   },

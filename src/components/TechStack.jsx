@@ -5,7 +5,6 @@ const SKILL_GROUPS = [
     title: 'Languages',
     skills: [
       { name: 'PHP', desc: 'Primary language — Laravel backend development' },
-      { name: 'Python', desc: 'FastAPI backend development and scripting' },
       { name: 'JavaScript', desc: 'Frontend logic and client-side scripting' },
     ],
   },
@@ -13,7 +12,6 @@ const SKILL_GROUPS = [
     title: 'Backend',
     skills: [
       { name: 'Laravel', desc: 'Primary framework — routing, Eloquent ORM, REST APIs, Sanctum' },
-      { name: 'FastAPI', desc: 'Used in production at Encardio-Rite, actively growing' },
       { name: 'REST APIs', desc: 'API design, resources, versioning, and integration' },
     ],
   },
@@ -21,7 +19,6 @@ const SKILL_GROUPS = [
     title: 'Databases',
     skills: [
       { name: 'MySQL', desc: 'Schema design, queries, joins, relationships' },
-      { name: 'PostgreSQL', desc: 'Used in production projects — basic to intermediate' },
     ],
   },
   {
@@ -51,6 +48,8 @@ const SKILL_GROUPS = [
     exposure: true,
     skills: [
       { name: 'TypeScript', desc: 'Familiar — used lightly in project support' },
+      { name: 'Python', desc: 'Familiar — used alongside FastAPI for backend work at Encardio-Rite' },
+      { name: 'FastAPI', desc: 'Worked with it in production at Encardio-Rite — still growing' },
       { name: 'Keycloak', desc: 'Worked with it at Encardio-Rite — still learning internals' },
     ],
   },

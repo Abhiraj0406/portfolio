@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-const RESUME_URL = `${import.meta.env.BASE_URL}Abhiraj_Vishwakarma_resume.pdf`;
+const RESUME_URL = `${import.meta.env.BASE_URL}laravel_backend_abhiraj_resume.pdf`;
 
 export default function Hero() {
   return (
@@ -30,7 +30,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.08 }}
           className="mb-2 text-sm font-medium uppercase tracking-widest text-teal-400"
         >
-          Backend Developer · Laravel · FastAPI · REST APIs
+          Backend Developer · Laravel · PHP · REST APIs
         </motion.p>
 
         <motion.p
@@ -64,7 +64,7 @@ export default function Hero() {
           className="mx-auto mb-10 max-w-2xl text-sm text-slate-400 sm:text-base leading-relaxed"
         >
           Backend developer with 1 year of experience at Encardio-Rite Pvt. Ltd.
-          Built REST APIs and internal systems using Laravel and FastAPI.
+          Built REST APIs and internal systems primarily using Laravel and PHP.
           Comfortable with MySQL, PostgreSQL, Docker, and Git.
           Currently focused on backend — building toward full stack with React.
         </motion.p>

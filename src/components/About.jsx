@@ -4,7 +4,7 @@ const JOURNEY = [
   {
     step: 'Now',
     label: 'Backend Developer',
-    desc: 'Laravel · FastAPI · REST APIs · MySQL · PostgreSQL',
+    desc: 'Laravel · PHP · REST APIs · MySQL',
     color: 'border-teal-500 bg-teal-500/10 text-teal-300',
     dot: 'bg-teal-500',
   },
@@ -18,7 +18,7 @@ const JOURNEY = [
   {
     step: 'Goal',
     label: 'Full Stack Developer',
-    desc: 'Laravel / FastAPI backend + React frontend',
+    desc: 'Laravel / PHP backend + React frontend',
     color: 'border-purple-500/50 bg-purple-500/10 text-purple-300',
     dot: 'bg-purple-400',
   },
@@ -62,15 +62,13 @@ export default function About() {
             <span className="text-slate-100 font-medium">Encardio-Rite Pvt. Ltd.</span>, where I
             worked as a Software Apprentice. I build REST APIs and backend systems —
             primarily with <span className="text-teal-400 font-medium">Laravel (PHP)</span> as my
-            main framework and <span className="text-teal-400 font-medium">FastAPI (Python)</span> as
-            my second. Both are frameworks I have used in a real production environment.
+            core framework. I have used it extensively in a real production environment.
           </p>
 
           <p className="leading-relaxed">
             At Encardio-Rite, I contributed to internal enterprise systems — a Sensor Data
-            Calibration system and an Internal Financial Dashboard. Worked on backend API
-            development, database interaction, and supported the migration of selected modules
-            from Laravel to FastAPI, giving me hands-on experience with both in production.
+            development, database interaction, and system integrations,
+            giving me hands-on experience building reliable architectures in production.
           </p>
 
           <p className="leading-relaxed">
@@ -78,13 +76,13 @@ export default function About() {
             environments, Git for version control, and Postman for API testing. I understand
             REST API design and database modeling from actual project work — not just tutorials.
             I also leverage Agentic AI tools (like Cursor AI and Antigravity) to accelerate
-            standard workflows, allowing me to build, debug, and ship code faster while 
+            standard workflows, allowing me to build, debug, and ship code faster while
             maintaining deep technical understanding of the underlying architecture.
           </p>
 
           <p className="leading-relaxed font-medium text-teal-300/90">
             🎯 My goal is to become a Full Stack Developer. I have a strong backend foundation
-            in both Laravel and FastAPI. I am now adding React to own the frontend side as well.
+            in Laravel and PHP. I am now adding React to own the frontend side as well.
             Looking for a backend role where I can contribute from day one and grow into full stack.
           </p>
         </motion.div>
@@ -138,43 +136,6 @@ export default function About() {
           <p className="mt-6 text-sm text-slate-500 italic">
             "I'm looking for a backend role where I can contribute immediately and grow toward full stack over time."
           </p>
-        </motion.div>
-
-        {/* Skill summary cards */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.25 }}
-          className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
-        >
-          <div className="rounded-xl border border-slate-800 bg-slate-800/30 p-4">
-            <h3 className="font-semibold text-slate-100">Backend</h3>
-            <p className="mt-2 text-sm text-slate-400">
-              Laravel, FastAPI, REST APIs
-            </p>
-          </div>
-
-          <div className="rounded-xl border border-slate-800 bg-slate-800/30 p-4">
-            <h3 className="font-semibold text-slate-100">Databases</h3>
-            <p className="mt-2 text-sm text-slate-400">
-              MySQL, PostgreSQL
-            </p>
-          </div>
-
-          <div className="rounded-xl border border-slate-800 bg-slate-800/30 p-4">
-            <h3 className="font-semibold text-slate-100">Tools</h3>
-            <p className="mt-2 text-sm text-slate-400">
-              Docker, Git, Postman
-            </p>
-          </div>
-
-          <div className="rounded-xl border border-teal-500/20 bg-teal-500/5 p-4">
-            <h3 className="font-semibold text-teal-300">Growing Into</h3>
-            <p className="mt-2 text-sm text-slate-400">
-              React, Full Stack, System Design
-            </p>
-          </div>
         </motion.div>
 
       </div>

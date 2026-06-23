@@ -7,22 +7,22 @@ const PROJECT_GROUPS = [
       {
         name: 'Sensor Data Calibration & Management System',
         bullets: [
-          'Contributed to backend API development for an internal enterprise sensor calibration workflow system.',
-          'Worked on specific backend modules using Laravel; supported migration of selected parts to FastAPI.',
-          'Worked within a team using PostgreSQL, Docker containers, and Keycloak-based authentication.',
+          'Led backend development under senior developer guidance — from API design and database schema through to final deployment.',
+          'Built RESTful APIs using Laravel and PHP to handle sensor calibration workflows, data processing, and management operations.',
+          'Worked with MySQL for data storage, Docker for containerised environments, and Keycloak for authentication.',
         ],
-        stack: ['Laravel', 'PHP', 'FastAPI', 'Python', 'PostgreSQL', 'Docker'],
+        stack: ['Laravel', 'PHP', 'MySQL', 'Docker', 'Keycloak'],
         repo: null,
         live: null,
       },
       {
         name: 'Internal Financial Dashboard System',
         bullets: [
-          'Supported FastAPI-based REST API development with filtering, pagination, and structured data handling.',
-          'Contributed to backend testing and helped with frontend integration support using React.',
-          'Assisted in maintaining internal API documentation for team use.',
+          'Developed Laravel-based REST API endpoints with filtering, pagination, and structured financial data handling.',
+          'Supported frontend integration using React and maintained internal API documentation for team use.',
+          'Worked with PostgreSQL for financial data storage within a Docker-based environment.',
         ],
-        stack: ['FastAPI', 'Python', 'PostgreSQL', 'React', 'Docker'],
+        stack: ['Laravel', 'PHP', 'PostgreSQL', 'React', 'Docker'],
         repo: null,
         live: null,
       },
@@ -32,14 +32,26 @@ const PROJECT_GROUPS = [
     section: 'Assignment / Independent Project',
     projects: [
       {
+        name: 'Employee Management System',
+        bullets: [
+          'Laravel technical assignment given by Tech2Globe to demonstrate real-world Laravel skills.',
+          'Implemented full authentication using Laravel Breeze, Role-Based Access Control (RBAC) with custom middleware, and CRUD operations.',
+          'Built employee profile management with file uploads (photos & documents), one-to-many education records, and server-side validation.',
+          'Clean MVC architecture using Eloquent ORM, Laravel migrations, and Blade templating with Tailwind CSS.',
+        ],
+        stack: ['Laravel 12', 'PHP', 'MySQL', 'Breeze', 'Blade', 'Tailwind CSS'],
+        repo: 'https://github.com/Abhiraj0406/employee-management',
+        live: null,
+      },
+      {
         name: 'ExploreHub — Web Data Discovery Platform',
         bullets: [
-          'Company assignment to explore NestJS and Next.js by building a web data scraping platform.',
-          'Accelerated backend prototyping and full-stack integration by leveraging Agentic AI tools (Cursor AI) within standard IDEs.',
-          'Implemented backend scraping workflows and connected them to a Next.js frontend.',
-          'Deployed backend on Railway using Docker and frontend on Vercel.',
+          'Built a web data scraping and discovery platform as a company assignment to explore full-stack integration.',
+          'Developed the Laravel/PHP backend for scraping workflows and connected it to a Next.js frontend.',
+          'Leveraged Agentic AI tools (Cursor AI, Antigravity) within standard IDEs to accelerate backend prototyping and delivery.',
+          'Deployed the backend on Railway using Docker and the frontend on Vercel.',
         ],
-        stack: ['Next.js', 'NestJS', 'Docker', 'PostgreSQL', 'Railway', 'Vercel'],
+        stack: ['Next.js', 'Laravel', 'PHP', 'Docker', 'MySQL', 'Railway', 'Vercel'],
         repo: 'https://github.com/Abhiraj0406/ExploreHub',
         live: 'https://explore-hub-neon.vercel.app/',
       },
@@ -52,9 +64,9 @@ const PROJECT_GROUPS = [
         name: 'Inventory & Invoice Management System',
         inProgress: true,
         bullets: [
-          'Building a personal project to deepen Laravel knowledge and grow toward full stack development.',
-          'Backend: Laravel REST APIs, MySQL, Role-Based Access Control (RBAC), Sanctum authentication.',
-          'Planning a React frontend — working toward end-to-end full stack ownership of this project.',
+          'Building a full-featured inventory and invoice management system to deepen Laravel expertise.',
+          'Backend includes REST APIs, MySQL, Role-Based Access Control (RBAC), and Sanctum authentication.',
+          'Planning a React frontend to achieve end-to-end full stack ownership of the project.',
         ],
         stack: ['Laravel', 'PHP', 'MySQL', 'REST APIs', 'React (planned)'],
         repo: null,
@@ -104,10 +116,11 @@ export default function FeaturedProjects() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-60px' }}
                     transition={{ duration: 0.4, delay: i * 0.1 }}
-                    className={`flex flex-col rounded-xl border p-6 shadow-sm transition ${project.inProgress
-                      ? 'border-teal-500/30 bg-teal-500/5 shadow-teal-500/10 hover:border-teal-400/50'
-                      : 'border-slate-800 bg-slate-800/20 shadow-slate-950/40 hover:border-teal-500/40 hover:shadow-teal-500/20'
-                      }`}
+                    className={`flex flex-col rounded-xl border p-6 shadow-sm transition ${
+                      project.inProgress
+                        ? 'border-teal-500/30 bg-teal-500/5 shadow-teal-500/10 hover:border-teal-400/50'
+                        : 'border-slate-800 bg-slate-800/20 shadow-slate-950/40 hover:border-teal-500/40 hover:shadow-teal-500/20'
+                    }`}
                   >
                     <div className="mb-3 flex items-start justify-between gap-2">
                       <h4 className="text-lg font-semibold text-slate-100">
@@ -146,10 +159,11 @@ export default function FeaturedProjects() {
                         target={project.live ? '_blank' : undefined}
                         rel={project.live ? 'noopener noreferrer' : undefined}
                         aria-disabled={!project.live}
-                        className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-medium transition ${project.live
-                          ? 'border-teal-500/60 bg-teal-500/10 text-teal-300 hover:border-teal-400 hover:bg-teal-500/20 hover:text-teal-100'
-                          : 'cursor-not-allowed border-slate-700 bg-slate-800/40 text-slate-500'
-                          }`}
+                        className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-medium transition ${
+                          project.live
+                            ? 'border-teal-500/60 bg-teal-500/10 text-teal-300 hover:border-teal-400 hover:bg-teal-500/20 hover:text-teal-100'
+                            : 'cursor-not-allowed border-slate-700 bg-slate-800/40 text-slate-500'
+                        }`}
                       >
                         Live Demo
                         {!project.live && (
@@ -164,10 +178,11 @@ export default function FeaturedProjects() {
                         target={project.repo ? '_blank' : undefined}
                         rel={project.repo ? 'noopener noreferrer' : undefined}
                         aria-disabled={!project.repo}
-                        className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-medium transition ${project.repo
-                          ? 'border-slate-600 bg-slate-900/70 text-slate-200 hover:border-teal-500 hover:text-teal-300'
-                          : 'cursor-not-allowed border-slate-700 bg-slate-800/40 text-slate-500'
-                          }`}
+                        className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-medium transition ${
+                          project.repo
+                            ? 'border-slate-600 bg-slate-900/70 text-slate-200 hover:border-teal-500 hover:text-teal-300'
+                            : 'cursor-not-allowed border-slate-700 bg-slate-800/40 text-slate-500'
+                        }`}
                       >
                         GitHub
                         {!project.repo && (
