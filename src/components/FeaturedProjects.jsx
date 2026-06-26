@@ -8,6 +8,7 @@ const PROJECT_GROUPS = [
         name: 'Sensor Data Calibration & Management System',
         bullets: [
           'Led backend development under senior developer guidance — from API design and database schema through to final deployment.',
+          'The calibration software enabled ~50% improvement in sensor data accuracy through automated and consistent calculation workflows.',
           'Built RESTful APIs using Laravel and PHP to handle sensor calibration workflows, data processing, and management operations.',
           'Worked with MySQL for data storage, Docker for containerised environments, and Keycloak for authentication.',
         ],
@@ -19,6 +20,7 @@ const PROJECT_GROUPS = [
         name: 'Internal Financial Dashboard System',
         bullets: [
           'Developed Laravel-based REST API endpoints with filtering, pagination, and structured financial data handling.',
+          'Streamlined data aggregation and API endpoints, reducing manual financial reporting effort by ~40% and enabling faster insights.',
           'Supported frontend integration using React and maintained internal API documentation for team use.',
           'Worked with PostgreSQL for financial data storage within a Docker-based environment.',
         ],
