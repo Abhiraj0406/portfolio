@@ -18,7 +18,8 @@ const SKILL_GROUPS = [
   {
     title: 'Databases',
     skills: [
-      { name: 'MySQL', desc: 'Schema design, queries, joins, relationships' },
+      { name: 'MySQL', desc: 'Schema design, joins, relationships, and indexing' },
+      { name: 'Database Querying', desc: 'Writing optimized SQL and using Laravel\'s Eloquent ORM' },
     ],
   },
   {
@@ -135,8 +136,8 @@ export default function TechStack() {
                     key={skill.name}
                     variants={item}
                     className={`rounded-xl border p-4 transition ${group.exposure
-                        ? 'border-slate-800/60 bg-slate-900/40 opacity-70 hover:opacity-90'
-                        : 'border-slate-800 bg-slate-800/30 hover:border-teal-500/40 hover:bg-slate-800/50'
+                      ? 'border-slate-800/60 bg-slate-900/40 opacity-70 hover:opacity-90'
+                      : 'border-slate-800 bg-slate-800/30 hover:border-teal-500/40 hover:bg-slate-800/50'
                       }`}
                   >
                     <span className={`font-medium ${group.exposure ? 'text-slate-400' : 'text-slate-100'}`}>

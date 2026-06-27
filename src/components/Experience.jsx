@@ -9,7 +9,7 @@ const JOBS = [
     highlights: [
       'Led backend development of the Sensor Data Calibration & Management System under senior developer guidance — contributing from initial API design and database schema through to final deployment.',
       'The calibration software enabled ~50% improvement in sensor data accuracy through automated and consistent calculation workflows.',
-      'Built and tested REST APIs using Laravel and PHP with MySQL; worked within a Docker-based development environment.',
+      'Built and tested REST APIs using Laravel, PHP, and Eloquent ORM with MySQL; worked within a Docker-based development environment.',
       'Supported Laravel-based REST API development for the Internal Financial Dashboard, implementing filtering, pagination, and structured data handling.',
       'Streamlined data aggregation and API endpoints, reducing manual financial reporting effort by ~40% and enabling faster insights.',
       'Collaborated using Keycloak-based authentication and Azure DevOps for task tracking, code reviews, and team coordination.',
