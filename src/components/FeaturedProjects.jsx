@@ -34,6 +34,18 @@ const PROJECT_GROUPS = [
     section: 'Assignment / Independent Project',
     projects: [
       {
+        name: 'URL Shortener Service',
+        bullets: [
+          'Built a multi-tenant URL shortening service with robust Role-Based Access Control (RBAC) supporting SuperAdmin, Admin, and Member roles.',
+          'Implemented core URL redirection logic with collision-resistant short code generation using Laravel 12 and MySQL.',
+          'Developed scoped dashboards where admins manage company-specific links and members track their own generated URLs.',
+          'Set up authentication with Laravel Breeze, automated database seeders, and wrote comprehensive feature tests for system reliability.',
+        ],
+        stack: ['Laravel 12', 'PHP 8.2+', 'MySQL', 'Breeze', 'RBAC', 'Feature Tests'],
+        repo: 'https://github.com/Abhiraj0406/URL-Shortner',
+        live: null,
+      },
+      {
         name: 'Employee Management System',
         bullets: [
           'Laravel technical assignment given by Tech2Globe to demonstrate real-world Laravel skills.',
@@ -125,15 +137,26 @@ export default function FeaturedProjects() {
                         : 'border-slate-800 bg-slate-800/20 shadow-slate-950/40 hover:border-teal-500/40 hover:shadow-teal-500/20'
                     }`}
                   >
-                    <div className="mb-3 flex items-start justify-between gap-2">
+                    <div className="mb-3 flex flex-wrap items-start justify-between gap-2">
                       <h4 className="text-lg font-semibold text-slate-100">
                         {project.name}
                       </h4>
-                      {project.inProgress && (
-                        <span className="shrink-0 rounded-full border border-teal-500/40 bg-teal-500/10 px-2.5 py-0.5 text-xs text-teal-400">
-                          In Progress
-                        </span>
-                      )}
+                      <div className="flex flex-wrap items-center gap-2">
+                        {project.live && (
+                          <span className="flex items-center gap-1.5 rounded-full border border-teal-500/40 bg-teal-500/10 px-2.5 py-0.5 text-xs text-teal-400 shadow-[0_0_10px_rgba(20,184,166,0.2)]">
+                            <span className="relative flex h-2 w-2">
+                              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-400 opacity-75"></span>
+                              <span className="relative inline-flex h-2 w-2 rounded-full bg-teal-500"></span>
+                            </span>
+                            Live
+                          </span>
+                        )}
+                        {project.inProgress && (
+                          <span className="shrink-0 rounded-full border border-teal-500/40 bg-teal-500/10 px-2.5 py-0.5 text-xs text-teal-400">
+                            In Progress
+                          </span>
+                        )}
+                      </div>
                     </div>
 
                     <ul className="flex-1 space-y-1.5 text-sm leading-relaxed text-slate-400">

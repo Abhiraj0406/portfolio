@@ -66,6 +66,7 @@ export default function Hero() {
           Backend developer with 1 year of experience at Encardio-Rite Pvt. Ltd.
           Built REST APIs and internal systems primarily using Laravel and PHP.
           Comfortable with MySQL, PostgreSQL, Docker, and Git.
+          Experienced in Docker-based deployments, hosting frontends on Vercel and backends on Railway.
           Currently focused on backend — building toward full stack with React.
         </motion.p>
 
