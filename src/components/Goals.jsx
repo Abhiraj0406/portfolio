@@ -8,6 +8,7 @@ const STEPS = [
     desc: 'Building REST APIs with Laravel and FastAPI. Working with MySQL, PostgreSQL, Docker. Job-ready for backend roles.',
     color: 'border-teal-500/50 bg-teal-500/10',
     labelColor: 'text-teal-400',
+    glow: '0 0 40px rgba(20,184,166,0.12)',
   },
   {
     icon: '📚',
@@ -16,6 +17,7 @@ const STEPS = [
     desc: 'Deepening Laravel knowledge through a personal project. Adding React frontend to complete the stack. Learning system design patterns.',
     color: 'border-blue-500/30 bg-blue-500/5',
     labelColor: 'text-blue-400',
+    glow: '0 0 40px rgba(99,102,241,0.1)',
   },
   {
     icon: '🎯',
@@ -24,12 +26,13 @@ const STEPS = [
     desc: 'Laravel / FastAPI backend + React frontend. Own the entire product — from API design to user interface. That is the goal.',
     color: 'border-purple-500/30 bg-purple-500/5',
     labelColor: 'text-purple-400',
+    glow: '0 0 40px rgba(168,85,247,0.1)',
   },
 ];
 
 export default function Goals() {
   return (
-    <section id="goals" className="border-t border-slate-800 px-6 py-20 sm:py-24">
+    <section id="goals" className="border-t border-slate-800/60 px-6 py-20 sm:py-24">
       <div className="mx-auto max-w-5xl">
 
         <motion.h2
@@ -71,9 +74,9 @@ export default function Goals() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.4, delay: i * 0.12 }}
-              className={`relative rounded-2xl border p-6 ${step.color}`}
+              whileHover={{ y: -6, boxShadow: step.glow }}
+              className={`relative rounded-2xl border p-6 backdrop-blur-sm transition-all duration-300 ${step.color}`}
             >
-              {/* step number */}
               <span className="absolute -top-3 left-6 rounded-full border border-slate-700 bg-slate-900 px-2.5 py-0.5 text-xs text-slate-500">
                 Step {i + 1}
               </span>
@@ -98,7 +101,7 @@ export default function Goals() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.3 }}
-          className="mt-10 rounded-xl border border-slate-700/40 bg-slate-800/20 p-5 text-sm text-slate-400"
+          className="mt-10 rounded-xl border border-slate-700/40 glass-card p-5 text-sm text-slate-400"
         >
           <span className="mr-2 text-slate-500">💬</span>
           "I'm looking for a backend role where I can contribute immediately, keep growing in Laravel and FastAPI,

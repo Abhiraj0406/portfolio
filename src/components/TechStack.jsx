@@ -19,7 +19,7 @@ const SKILL_GROUPS = [
     title: 'Databases',
     skills: [
       { name: 'MySQL', desc: 'Schema design, joins, relationships, and indexing' },
-      { name: 'Database Querying', desc: 'Writing optimized SQL and using Laravel\'s Eloquent ORM' },
+      { name: 'Database Querying', desc: "Writing optimized SQL and using Laravel's Eloquent ORM" },
     ],
   },
   {
@@ -58,20 +58,17 @@ const SKILL_GROUPS = [
 
 const container = {
   hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.06 },
-  },
+  show: { opacity: 1, transition: { staggerChildren: 0.06 } },
 };
 
 const item = {
   hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0 },
+  show:   { opacity: 1, y: 0 },
 };
 
 export default function TechStack() {
   return (
-    <section id="tech" className="border-t border-slate-800 px-6 py-20 sm:py-24">
+    <section id="tech" className="border-t border-slate-800/60 px-6 py-20 sm:py-24">
       <div className="mx-auto max-w-5xl">
 
         <motion.h2
@@ -135,10 +132,12 @@ export default function TechStack() {
                   <motion.li
                     key={skill.name}
                     variants={item}
-                    className={`rounded-xl border p-4 transition ${group.exposure
-                      ? 'border-slate-800/60 bg-slate-900/40 opacity-70 hover:opacity-90'
-                      : 'border-slate-800 bg-slate-800/30 hover:border-teal-500/40 hover:bg-slate-800/50'
-                      }`}
+                    whileHover={!group.exposure ? { scale: 1.02, y: -2 } : {}}
+                    className={`skill-card rounded-xl border p-4 transition-all duration-200 cursor-default ${
+                      group.exposure
+                        ? 'border-slate-800/60 bg-slate-900/40 opacity-70 hover:opacity-90'
+                        : 'border-slate-700/60 bg-slate-800/30 hover:bg-slate-800/60'
+                    }`}
                   >
                     <span className={`font-medium ${group.exposure ? 'text-slate-400' : 'text-slate-100'}`}>
                       {skill.name}

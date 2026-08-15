@@ -1,3 +1,4 @@
+import { useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 
 const PROJECT_GROUPS = [
@@ -91,9 +92,46 @@ const PROJECT_GROUPS = [
   },
 ];
 
+/* ── 3D Tilt Card Wrapper ─────────────────────────────────── */
+function TiltCard({ children, className }) {
+  const cardRef = useRef(null);
+
+  const handleMouseMove = useCallback((e) => {
+    const card = cardRef.current;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const cx = rect.width  / 2;
+    const cy = rect.height / 2;
+    const rotX = ((y - cy) / cy) * -7;
+    const rotY = ((x - cx) / cx) *  7;
+    card.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.025)`;
+    card.style.boxShadow = `0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(20,184,166,0.12)`;
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    const card = cardRef.current;
+    if (!card) return;
+    card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)';
+    card.style.boxShadow = '';
+  }, []);
+
+  return (
+    <div
+      ref={cardRef}
+      className={`tilt-card ${className}`}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      {children}
+    </div>
+  );
+}
+
 export default function FeaturedProjects() {
   return (
-    <section id="projects" className="border-t border-slate-800 px-6 py-20 sm:py-24">
+    <section id="projects" className="border-t border-slate-800/60 px-6 py-20 sm:py-24">
       <div className="mx-auto max-w-5xl">
 
         <motion.h2
@@ -125,100 +163,107 @@ export default function FeaturedProjects() {
 
               <div className="grid gap-6 lg:grid-cols-2">
                 {group.projects.map((project, i) => (
-                  <motion.article
+                  <motion.div
                     key={project.name}
                     initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-60px' }}
                     transition={{ duration: 0.4, delay: i * 0.1 }}
-                    className={`flex flex-col rounded-xl border p-6 shadow-sm transition ${
-                      project.inProgress
-                        ? 'border-teal-500/30 bg-teal-500/5 shadow-teal-500/10 hover:border-teal-400/50'
-                        : 'border-slate-800 bg-slate-800/20 shadow-slate-950/40 hover:border-teal-500/40 hover:shadow-teal-500/20'
-                    }`}
                   >
-                    <div className="mb-3 flex flex-wrap items-start justify-between gap-2">
-                      <h4 className="text-lg font-semibold text-slate-100">
-                        {project.name}
-                      </h4>
-                      <div className="flex flex-wrap items-center gap-2">
-                        {project.live && (
-                          <span className="flex items-center gap-1.5 rounded-full border border-teal-500/40 bg-teal-500/10 px-2.5 py-0.5 text-xs text-teal-400 shadow-[0_0_10px_rgba(20,184,166,0.2)]">
-                            <span className="relative flex h-2 w-2">
-                              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-400 opacity-75"></span>
-                              <span className="relative inline-flex h-2 w-2 rounded-full bg-teal-500"></span>
+                    <TiltCard
+                      className={`flex flex-col rounded-xl border p-6 glass-card h-full ${
+                        project.inProgress
+                          ? 'border-teal-500/30 bg-teal-500/5'
+                          : 'border-slate-700/50'
+                      }`}
+                    >
+                      {/* header */}
+                      <div className="mb-3 flex flex-wrap items-start justify-between gap-2">
+                        <h4 className="text-lg font-semibold text-slate-100">
+                          {project.name}
+                        </h4>
+                        <div className="flex flex-wrap items-center gap-2">
+                          {project.live && (
+                            <span className="flex items-center gap-1.5 rounded-full border border-teal-500/40 bg-teal-500/10 px-2.5 py-0.5 text-xs text-teal-400 shadow-[0_0_10px_rgba(20,184,166,0.2)]">
+                              <span className="relative flex h-2 w-2">
+                                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-400 opacity-75" />
+                                <span className="relative inline-flex h-2 w-2 rounded-full bg-teal-500" />
+                              </span>
+                              Live
                             </span>
-                            Live
-                          </span>
-                        )}
-                        {project.inProgress && (
-                          <span className="shrink-0 rounded-full border border-teal-500/40 bg-teal-500/10 px-2.5 py-0.5 text-xs text-teal-400">
-                            In Progress
-                          </span>
-                        )}
+                          )}
+                          {project.inProgress && (
+                            <span className="shrink-0 rounded-full border border-teal-500/40 bg-teal-500/10 px-2.5 py-0.5 text-xs text-teal-400">
+                              In Progress
+                            </span>
+                          )}
+                        </div>
                       </div>
-                    </div>
 
-                    <ul className="flex-1 space-y-1.5 text-sm leading-relaxed text-slate-400">
-                      {project.bullets.map((bullet) => (
-                        <li key={bullet} className="flex gap-2">
-                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-teal-500" />
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
+                      {/* bullets */}
+                      <ul className="flex-1 space-y-1.5 text-sm leading-relaxed text-slate-400">
+                        {project.bullets.map((bullet) => (
+                          <li key={bullet} className="flex gap-2">
+                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-teal-500" />
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
 
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {project.stack.map((tech) => (
-                        <span
-                          key={tech}
-                          className="rounded-full bg-slate-700/80 px-3 py-1 text-xs text-slate-100"
+                      {/* stack tags */}
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {project.stack.map((tech) => (
+                          <span
+                            key={tech}
+                            className="rounded-full bg-slate-700/70 px-3 py-1 text-xs text-slate-300 border border-slate-600/50"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* action buttons */}
+                      <div className="mt-4 flex flex-wrap gap-3">
+                        <a
+                          href={project.live || '#'}
+                          target={project.live ? '_blank' : undefined}
+                          rel={project.live ? 'noopener noreferrer' : undefined}
+                          aria-disabled={!project.live}
+                          className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-medium transition ${
+                            project.live
+                              ? 'border-teal-500/60 bg-teal-500/10 text-teal-300 hover:border-teal-400 hover:bg-teal-500/20 hover:shadow-[0_0_14px_rgba(20,184,166,0.3)]'
+                              : 'cursor-not-allowed border-slate-700 bg-slate-800/40 text-slate-500'
+                          }`}
                         >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                          Live Demo
+                          {!project.live && (
+                            <span className="text-[10px]">
+                              {project.inProgress ? '(building)' : '(internal)'}
+                            </span>
+                          )}
+                        </a>
 
-                    <div className="mt-4 flex flex-wrap gap-3">
-                      <a
-                        href={project.live || '#'}
-                        target={project.live ? '_blank' : undefined}
-                        rel={project.live ? 'noopener noreferrer' : undefined}
-                        aria-disabled={!project.live}
-                        className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-medium transition ${
-                          project.live
-                            ? 'border-teal-500/60 bg-teal-500/10 text-teal-300 hover:border-teal-400 hover:bg-teal-500/20 hover:text-teal-100'
-                            : 'cursor-not-allowed border-slate-700 bg-slate-800/40 text-slate-500'
-                        }`}
-                      >
-                        Live Demo
-                        {!project.live && (
-                          <span className="text-[10px]">
-                            {project.inProgress ? '(building)' : '(internal)'}
-                          </span>
-                        )}
-                      </a>
-
-                      <a
-                        href={project.repo || '#'}
-                        target={project.repo ? '_blank' : undefined}
-                        rel={project.repo ? 'noopener noreferrer' : undefined}
-                        aria-disabled={!project.repo}
-                        className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-medium transition ${
-                          project.repo
-                            ? 'border-slate-600 bg-slate-900/70 text-slate-200 hover:border-teal-500 hover:text-teal-300'
-                            : 'cursor-not-allowed border-slate-700 bg-slate-800/40 text-slate-500'
-                        }`}
-                      >
-                        GitHub
-                        {!project.repo && (
-                          <span className="text-[10px]">
-                            {project.inProgress ? '(soon)' : '(internal)'}
-                          </span>
-                        )}
-                      </a>
-                    </div>
-                  </motion.article>
+                        <a
+                          href={project.repo || '#'}
+                          target={project.repo ? '_blank' : undefined}
+                          rel={project.repo ? 'noopener noreferrer' : undefined}
+                          aria-disabled={!project.repo}
+                          className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-medium transition ${
+                            project.repo
+                              ? 'border-slate-600 bg-slate-900/70 text-slate-200 hover:border-teal-500 hover:text-teal-300'
+                              : 'cursor-not-allowed border-slate-700 bg-slate-800/40 text-slate-500'
+                          }`}
+                        >
+                          GitHub
+                          {!project.repo && (
+                            <span className="text-[10px]">
+                              {project.inProgress ? '(soon)' : '(internal)'}
+                            </span>
+                          )}
+                        </a>
+                      </div>
+                    </TiltCard>
+                  </motion.div>
                 ))}
               </div>
             </div>

@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export default function Education() {
   return (
-    <section id="education" className="border-t border-slate-800 px-6 py-20 sm:py-24">
+    <section id="education" className="border-t border-slate-800/60 px-6 py-20 sm:py-24">
       <div className="mx-auto max-w-5xl">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -27,17 +27,29 @@ export default function Education() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.4 }}
-          className="rounded-xl border border-slate-800 bg-slate-800/20 p-6 sm:p-8"
+          className="rounded-xl border border-slate-700/50 glass-card p-6 sm:p-8 transition-all duration-300 hover:border-teal-500/30 hover:shadow-[0_8px_32px_rgba(20,184,166,0.08)]"
         >
-          <h3 className="text-lg font-semibold text-slate-100">
-            B.Tech in Computer Science & Engineering
-          </h3>
-          <p className="mt-1 text-slate-400">
-            Dr. A.P.J. Abdul Kalam Technical University (AKTU), Lucknow
-          </p>
-          <div className="mt-3 flex flex-wrap gap-4 text-sm">
-            <span className="text-teal-400">Graduated: July 2024</span>
-            <span className="text-slate-500">CGPA: 7.66 / 10</span>
+          <div className="flex items-start gap-4">
+            {/* Icon */}
+            <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-teal-500/30 bg-teal-500/10">
+              <span className="text-lg">🎓</span>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-slate-100">
+                B.Tech in Computer Science & Engineering
+              </h3>
+              <p className="mt-1 text-slate-400">
+                Dr. A.P.J. Abdul Kalam Technical University (AKTU), Lucknow
+              </p>
+              <div className="mt-3 flex flex-wrap gap-4 text-sm">
+                <span className="rounded-full border border-teal-500/30 bg-teal-500/10 px-3 py-0.5 text-teal-400">
+                  Graduated: July 2024
+                </span>
+                <span className="rounded-full border border-slate-700 bg-slate-800/40 px-3 py-0.5 text-slate-400">
+                  CGPA: 7.66 / 10
+                </span>
+              </div>
+            </div>
           </div>
         </motion.article>
       </div>

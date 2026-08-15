@@ -1,5 +1,32 @@
-import { motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+import { motion, useInView, useMotionValue, animate } from 'framer-motion';
 
+/* ── Animated Counter ───────────────────────────────────────── */
+function Counter({ to, suffix = '', prefix = '' }) {
+  const ref      = useRef(null);
+  const inView   = useInView(ref, { once: true, margin: '-60px' });
+  const motionVal = useMotionValue(0);
+
+  useEffect(() => {
+    if (!inView) return;
+    const controls = animate(motionVal, to, {
+      duration: 2,
+      ease: 'easeOut',
+      onUpdate: (v) => {
+        if (ref.current) ref.current.textContent = `${prefix}${Math.round(v)}${suffix}`;
+      },
+    });
+    return controls.stop;
+  }, [inView, motionVal, to, prefix, suffix]);
+
+  return (
+    <span ref={ref} className="tabular-nums">
+      {prefix}0{suffix}
+    </span>
+  );
+}
+
+/* ── Journey data ───────────────────────────────────────────── */
 const JOURNEY = [
   {
     step: 'Now',
@@ -24,9 +51,17 @@ const JOURNEY = [
   },
 ];
 
+/* ── Stats data ─────────────────────────────────────────────── */
+const STATS = [
+  { label: 'Year of Experience', value: 1, suffix: '',   prefix: '' },
+  { label: 'Projects Shipped',   value: 5, suffix: '+',  prefix: '' },
+  { label: 'Sensor Accuracy Boost', value: 50, suffix: '%', prefix: '~' },
+  { label: 'Report Time Saved',  value: 40, suffix: '%', prefix: '~' },
+];
+
 export default function About() {
   return (
-    <section id="about" className="border-t border-slate-800 px-6 py-20 sm:py-24">
+    <section id="about" className="border-t border-slate-800/60 px-6 py-20 sm:py-24">
       <div className="mx-auto max-w-5xl">
 
         <motion.h2
@@ -49,7 +84,7 @@ export default function About() {
           Backend developer building real-world APIs and systems
         </motion.p>
 
-        {/* Bio */}
+        {/* ── Bio ──────────────────────────────────────────────── */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -87,13 +122,38 @@ export default function About() {
           </p>
         </motion.div>
 
-        {/* Full Stack Journey Roadmap */}
+        {/* ── Animated Stats ───────────────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4"
+        >
+          {STATS.map((s, i) => (
+            <motion.div
+              key={s.label}
+              initial={{ opacity: 0, scale: 0.85 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.4, delay: 0.18 + i * 0.08 }}
+              className="rounded-2xl border border-slate-700/50 bg-slate-800/30 p-5 text-center backdrop-blur-sm transition hover:border-teal-500/30 hover:bg-slate-800/50"
+            >
+              <p className="mb-1 text-3xl font-bold text-teal-400">
+                <Counter to={s.value} suffix={s.suffix} prefix={s.prefix} />
+              </p>
+              <p className="text-xs text-slate-500 leading-snug">{s.label}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* ── Full Stack Journey Roadmap ───────────────────────── */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.4, delay: 0.18 }}
-          className="mt-12 rounded-2xl border border-slate-700/60 bg-slate-800/20 p-6 sm:p-8"
+          className="mt-10 rounded-2xl border border-slate-700/60 bg-slate-800/20 p-6 sm:p-8 backdrop-blur-sm"
         >
           <p className="mb-6 text-xs font-semibold uppercase tracking-widest text-slate-500">
             My Full Stack Journey
@@ -102,7 +162,6 @@ export default function About() {
           <div className="flex flex-col gap-0 sm:flex-row sm:items-stretch sm:gap-0">
             {JOURNEY.map((item, i) => (
               <div key={item.step} className="flex sm:flex-1 sm:flex-col">
-                {/* card */}
                 <div className="flex sm:flex-col flex-1 gap-4 sm:gap-3">
                   <div className={`mt-1 sm:mt-0 flex h-8 w-8 sm:h-auto sm:w-auto shrink-0 sm:mb-3 items-center justify-center rounded-full sm:rounded-lg border px-0 sm:px-4 sm:py-2 ${item.color} sm:text-center`}>
                     <span className="hidden sm:block text-xs font-bold uppercase tracking-widest">
@@ -119,7 +178,6 @@ export default function About() {
                   </div>
                 </div>
 
-                {/* connector arrow */}
                 {i < JOURNEY.length - 1 && (
                   <div className="my-3 flex items-center justify-center sm:hidden">
                     <svg className="h-4 w-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -129,8 +187,6 @@ export default function About() {
                 )}
               </div>
             ))}
-
-            {/* desktop arrows between cards */}
           </div>
 
           <p className="mt-6 text-sm text-slate-500 italic">

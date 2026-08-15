@@ -30,7 +30,7 @@ const JOBS = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="border-t border-slate-800 px-6 py-20 sm:py-24">
+    <section id="experience" className="border-t border-slate-800/60 px-6 py-20 sm:py-24">
       <div className="mx-auto max-w-5xl">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -60,9 +60,9 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="relative rounded-xl border border-slate-800 bg-slate-800/20 p-5 sm:p-7"
+              className="relative rounded-xl border border-slate-700/50 glass-card p-5 sm:p-7 transition-all duration-300 hover:shadow-[0_8px_32px_rgba(20,184,166,0.08)]"
             >
-              <span className="absolute -left-2 top-6 h-3 w-3 rounded-full bg-teal-500" />
+              <span className="absolute -left-2 top-6 h-3 w-3 rounded-full bg-teal-500 shadow-[0_0_8px_rgba(20,184,166,0.6)]" />
 
               <div className="flex flex-wrap items-start justify-between gap-2">
                 <div>

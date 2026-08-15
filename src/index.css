@@ -12,3 +12,151 @@ body {
 ::selection {
   @apply bg-teal-500/30 text-slate-100;
 }
+
+/* ── Custom Scrollbar ─────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #14b8a6, #0d9488);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2dd4bf;
+}
+
+/* ── Keyframe Animations ──────────────────────────────────── */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-22px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) translateX(0px) scale(1); }
+  33%       { transform: translateY(-18px) translateX(12px) scale(1.04); }
+  66%       { transform: translateY(12px) translateX(-10px) scale(0.97); }
+}
+
+@keyframes float-x {
+  0%, 100% { transform: translateX(0px); }
+  50%       { transform: translateX(-20px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 0 0 rgba(20, 184, 166, 0),
+      0 0 20px rgba(20, 184, 166, 0.35),
+      0 0 40px rgba(20, 184, 166, 0.08);
+  }
+  50% {
+    box-shadow:
+      0 0 0 6px rgba(20, 184, 166, 0.08),
+      0 0 30px rgba(20, 184, 166, 0.6),
+      0 0 60px rgba(20, 184, 166, 0.2);
+  }
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes orbDrift1 {
+  0%, 100% { transform: translate(0%, 0%); }
+  25%       { transform: translate(4%, -6%); }
+  50%       { transform: translate(-3%, -10%); }
+  75%       { transform: translate(-5%, 4%); }
+}
+
+@keyframes orbDrift2 {
+  0%, 100% { transform: translate(0%, 0%); }
+  25%       { transform: translate(-5%, 6%); }
+  50%       { transform: translate(6%, 8%); }
+  75%       { transform: translate(4%, -4%); }
+}
+
+@keyframes orbDrift3 {
+  0%, 100% { transform: translate(0%, 0%); }
+  33%       { transform: translate(3%, 8%); }
+  66%       { transform: translate(-4%, -5%); }
+}
+
+@keyframes progressGlow {
+  0%, 100% { box-shadow: 0 0 6px rgba(20, 184, 166, 0.5); }
+  50%       { box-shadow: 0 0 14px rgba(20, 184, 166, 0.9); }
+}
+
+@keyframes avatarRing {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(20,184,166,0.6), 0 0 20px rgba(20,184,166,0.25); }
+  50%       { box-shadow: 0 0 0 5px rgba(20,184,166,0.9), 0 0 35px rgba(20,184,166,0.45); }
+}
+
+/* ── Utility Classes ─────────────────────────────────────── */
+
+.animate-float        { animation: float      6s ease-in-out infinite; }
+.animate-float-slow   { animation: float-slow 10s ease-in-out infinite; }
+.animate-float-x      { animation: float-x    8s ease-in-out infinite; }
+.animate-pulse-glow   { animation: pulseGlow  3s ease-in-out infinite; }
+.animate-blink        { animation: blink      1s step-end infinite; }
+
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #f1f5f9 0%,
+    #f1f5f9 35%,
+    #5eead4 50%,
+    #f1f5f9 65%,
+    #f1f5f9 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 5s linear infinite;
+}
+
+/* Avatar ring pulse */
+.avatar-ring {
+  animation: avatarRing 3s ease-in-out infinite;
+}
+
+/* Scroll progress bar glow */
+.progress-glow {
+  animation: progressGlow 2s ease-in-out infinite;
+}
+
+/* 3D Tilt card base */
+.tilt-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.08s ease-out, box-shadow 0.2s ease-out;
+}
+
+/* Glassmorphism */
+.glass-card {
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(20, 184, 166, 0.12);
+}
+
+.glass-card:hover {
+  border-color: rgba(20, 184, 166, 0.35);
+  box-shadow: 0 8px 32px rgba(20, 184, 166, 0.12), 0 0 0 1px rgba(20,184,166,0.1);
+}
+
+/* Skill card hover glow */
+.skill-card:hover {
+  box-shadow: 0 0 18px rgba(20, 184, 166, 0.15), 0 0 6px rgba(20, 184, 166, 0.08);
+  border-color: rgba(20, 184, 166, 0.45) !important;
+}
