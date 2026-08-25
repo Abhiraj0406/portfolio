@@ -83,9 +83,7 @@ export default function Contact() {
             className="space-y-6"
           >
             <p className="text-slate-400 leading-relaxed">
-              I am open to backend and full-stack opportunities — whether it's a full-time role,
-              a contract project, or just a conversation about a problem you're solving.
-              I respond quickly and am available to start immediately.
+              I am open to discussions about backend systems, full-stack development, and exciting engineering challenges — whether it's a new project, collaboration, or technical problem solving.
             </p>
 
             <div className="flex flex-col gap-4">

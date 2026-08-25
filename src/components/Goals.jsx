@@ -4,8 +4,8 @@ const STEPS = [
   {
     icon: '⚡',
     phase: 'Right Now',
-    title: 'Backend Developer',
-    desc: 'Building REST APIs with Laravel and FastAPI. Working with MySQL, PostgreSQL, Docker. Job-ready for backend roles.',
+    title: 'PHP Developer',
+    desc: 'Building and maintaining PHP/Laravel web applications, handling server deployments, database management, and REST API development in a full-time role.',
     color: 'border-teal-500/50 bg-teal-500/10',
     labelColor: 'text-teal-400',
     glow: '0 0 40px rgba(20,184,166,0.12)',
@@ -13,17 +13,17 @@ const STEPS = [
   {
     icon: '📚',
     phase: 'Currently Building',
-    title: 'Full Stack Skills',
-    desc: 'Deepening Laravel knowledge through a personal project. Adding React frontend to complete the stack. Learning system design patterns.',
+    title: 'Full Stack Capabilities',
+    desc: 'Deepening my Laravel backend knowledge through real projects. Learning React to build complete, end-to-end applications without relying on others for the frontend.',
     color: 'border-blue-500/30 bg-blue-500/5',
     labelColor: 'text-blue-400',
     glow: '0 0 40px rgba(99,102,241,0.1)',
   },
   {
     icon: '🎯',
-    phase: 'Target Role',
+    phase: 'Goal',
     title: 'Full Stack Developer',
-    desc: 'Laravel / FastAPI backend + React frontend. Own the entire product — from API design to user interface. That is the goal.',
+    desc: 'Own the entire product stack — strong backend with Laravel or PHP, paired with a modern React frontend. Build complete systems independently.',
     color: 'border-purple-500/30 bg-purple-500/5',
     labelColor: 'text-purple-400',
     glow: '0 0 40px rgba(168,85,247,0.1)',
@@ -104,8 +104,7 @@ export default function Goals() {
           className="mt-10 rounded-xl border border-slate-700/40 glass-card p-5 text-sm text-slate-400"
         >
           <span className="mr-2 text-slate-500">💬</span>
-          "I'm looking for a backend role where I can contribute immediately, keep growing in Laravel and FastAPI,
-          and move toward full stack over time. I value honesty, learning, and building things that actually work."
+          "Currently employed as a PHP Developer, focused on writing clean code, learning from real production problems, and steadily growing toward full stack development."
         </motion.div>
 
       </div>

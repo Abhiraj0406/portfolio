@@ -7,8 +7,7 @@ const PHOTO_URL  = `${BASE}myimg.jpg`;
 
 const ROLES = [
   'Backend Developer',
-  'Laravel Developer',
-  'PHP Developer',
+  'Laravel & PHP Developer',
   'REST API Engineer',
   'Full Stack Developer (in progress)',
 ];
@@ -72,12 +71,12 @@ export default function Hero() {
                 draggable={false}
               />
             </div>
-            {/* "Open to Work" green dot */}
+            {/* "Currently Employed" green dot */}
             <span
-              title="Open to Work"
-              className="absolute bottom-1 right-1 h-4 w-4 rounded-full border-2 border-slate-900 bg-green-400"
+              title="Currently Employed"
+              className="absolute bottom-1 right-1 h-4 w-4 rounded-full border-2 border-slate-900 bg-emerald-500"
             >
-              <span className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-60" />
+              <span className="absolute inset-0 rounded-full bg-emerald-500 opacity-60" />
             </span>
           </div>
         </motion.div>
@@ -109,7 +108,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.24 }}
           className="mb-6 text-xs text-slate-500 tracking-wide"
         >
-          Working toward Full Stack · Laravel + React
+          Building reliable backend systems · Growing toward Full Stack
         </motion.p>
 
         {/* ── Badges ────────────────────────────────────────────── */}
@@ -119,8 +118,8 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mb-8 flex flex-wrap justify-center gap-3"
         >
-          <span className="rounded-full border border-green-500/40 bg-green-500/10 px-4 py-1 text-sm text-green-400">
-            ✅ Open to Work · Immediate Joiner
+          <span className="rounded-full border border-emerald-500/40 bg-emerald-500/10 px-4 py-1 text-sm text-emerald-400">
+            💼 PHP Developer @ AI Digital Innovation
           </span>
           <span className="rounded-full border border-teal-500/30 bg-teal-500/10 px-4 py-1 text-sm text-teal-300">
             🎯 Goal: Full Stack Developer
@@ -134,10 +133,9 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.36 }}
           className="mx-auto mb-10 max-w-2xl text-sm text-slate-400 sm:text-base leading-relaxed"
         >
-          Backend developer with 1 year of experience at Encardio-Rite Pvt. Ltd.
-          Built REST APIs and internal systems primarily using <span className="text-teal-400 font-medium">Laravel and PHP</span>.
-          Comfortable with MySQL, PostgreSQL, Docker, and Git.
-          Currently focused on backend — building toward full stack with React.
+          Backend developer with real-world experience building REST APIs and web systems using{' '}
+          <span className="text-teal-400 font-medium">Laravel and PHP</span>. Worked with MySQL,
+          PostgreSQL, Docker, and handled live server infrastructure. Currently growing toward full stack with React.
         </motion.p>
 
         {/* ── CTA Buttons ───────────────────────────────────────── */}

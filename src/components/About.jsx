@@ -30,8 +30,8 @@ function Counter({ to, suffix = '', prefix = '' }) {
 const JOURNEY = [
   {
     step: 'Now',
-    label: 'Backend Developer',
-    desc: 'Laravel · PHP · REST APIs · MySQL',
+    label: 'PHP Developer',
+    desc: 'Laravel · PHP · REST APIs · Server Admin',
     color: 'border-teal-500 bg-teal-500/10 text-teal-300',
     dot: 'bg-teal-500',
   },
@@ -45,7 +45,7 @@ const JOURNEY = [
   {
     step: 'Goal',
     label: 'Full Stack Developer',
-    desc: 'Laravel / PHP backend + React frontend',
+    desc: 'Strong backend + React frontend',
     color: 'border-purple-500/50 bg-purple-500/10 text-purple-300',
     dot: 'bg-purple-400',
   },
@@ -93,32 +93,26 @@ export default function About() {
           className="space-y-5 text-slate-300"
         >
           <p className="leading-relaxed">
-            Backend developer with 1 year of real-world experience at{' '}
-            <span className="text-slate-100 font-medium">Encardio-Rite Pvt. Ltd.</span>, where I
-            worked as a Software Apprentice. I build REST APIs and backend systems —
-            primarily with <span className="text-teal-400 font-medium">Laravel (PHP)</span> as my
-            core framework. I have used it extensively in a real production environment.
+            Backend developer with real-world experience at{' '}
+            <span className="text-slate-100 font-medium">Encardio-Rite Pvt. Ltd.</span> and{' '}
+            <span className="text-slate-100 font-medium">AI Digital Innovation</span>.
+            I build and maintain REST APIs and web applications, primarily with{' '}
+            <span className="text-teal-400 font-medium">Laravel (PHP)</span> as my core framework — used extensively in production.
           </p>
 
           <p className="leading-relaxed">
-            At Encardio-Rite, I contributed to internal enterprise systems — a Sensor Data
-            development, database interaction, and system integrations,
-            giving me hands-on experience building reliable architectures in production.
+            I work with <span className="text-slate-100 font-medium">MySQL and PostgreSQL</span> for databases,{' '}
+            <span className="text-slate-100 font-medium">Docker</span> for containerised environments, and handle real server deployments on Hostinger.
+            I understand REST API design, database modeling, and documentation (Swagger/OpenAPI) from actual project work.
           </p>
 
           <p className="leading-relaxed">
-            I work with MySQL and PostgreSQL for databases, Docker for containerised
-            environments, Git for version control, and Postman for API testing. I understand
-            REST API design and database modeling from actual project work — not just tutorials.
-            I also leverage Agentic AI tools (like Cursor AI and Antigravity) to accelerate
-            standard workflows, allowing me to build, debug, and ship code faster while
-            maintaining deep technical understanding of the underlying architecture.
+            I also have exposure to Python and FastAPI from my time at Encardio-Rite, and I’m keen to develop that further alongside my backend work.
+            I leverage Agentic AI tools to accelerate standard workflows while maintaining technical depth.
           </p>
 
           <p className="leading-relaxed font-medium text-teal-300/90">
-            🎯 My goal is to become a Full Stack Developer. I have a strong backend foundation
-            in Laravel and PHP. I am now adding React to own the frontend side as well.
-            Looking for a backend role where I can contribute from day one and grow into full stack.
+            🎯 Currently working as a PHP Developer and steadily building toward full stack. Looking to take on more complex backend and API challenges over time.
           </p>
         </motion.div>
 
@@ -190,7 +184,7 @@ export default function About() {
           </div>
 
           <p className="mt-6 text-sm text-slate-500 italic">
-            "I'm looking for a backend role where I can contribute immediately and grow toward full stack over time."
+            "Currently employed as a PHP Developer — building solid backend fundamentals and growing steadily toward full stack development."
           </p>
         </motion.div>
 

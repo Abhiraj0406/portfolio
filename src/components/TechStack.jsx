@@ -4,54 +4,55 @@ const SKILL_GROUPS = [
   {
     title: 'Languages',
     skills: [
-      { name: 'PHP', desc: 'Primary language — Laravel backend development' },
-      { name: 'JavaScript', desc: 'Frontend logic and client-side scripting' },
+      { name: 'PHP', desc: 'Primary backend language — OOP, APIs, and web application development' },
+      { name: 'JavaScript', desc: 'Client-side scripting, DOM manipulation, and modern ES6+' },
     ],
   },
   {
     title: 'Backend',
     skills: [
-      { name: 'Laravel', desc: 'Primary framework — routing, Eloquent ORM, REST APIs, Sanctum' },
-      { name: 'REST APIs', desc: 'API design, resources, versioning, and integration' },
+      { name: 'Laravel', desc: 'Core framework — routing, Eloquent ORM, Sanctum, REST APIs, MVC' },
+      { name: 'REST API Design', desc: 'Structured endpoints, filtering, pagination, versioning, and documentation' },
+      { name: 'Swagger / OpenAPI', desc: 'API documentation and interactive endpoint testing via Swagger UI' },
     ],
   },
   {
     title: 'Databases',
     skills: [
-      { name: 'MySQL', desc: 'Schema design, joins, relationships, and indexing' },
-      { name: 'Database Querying', desc: "Writing optimized SQL and using Laravel's Eloquent ORM" },
+      { name: 'MySQL', desc: 'Schema design, relationships, joins, indexing, and query optimization' },
+      { name: 'PostgreSQL', desc: 'Relational data modeling, used in production projects at Encardio-Rite' },
     ],
   },
   {
     title: 'Frontend',
     skills: [
-      { name: 'React', desc: 'Basic components — used in support role on projects' },
+      { name: 'React', desc: 'Component architecture, hooks, state management, and API integration' },
+      { name: 'Tailwind CSS', desc: 'Utility-first styling, responsive layouts, and modern UI design' },
     ],
   },
   {
-    title: 'Tools & DevOps',
+    title: 'Tools & Infrastructure',
     skills: [
-      { name: 'Git & GitHub', desc: 'Daily version control and collaborative development' },
-      { name: 'Docker', desc: 'Containerised development — used at work, understand basics' },
-      { name: 'Postman', desc: 'API testing and endpoint validation' },
-      { name: 'Azure DevOps', desc: 'Task tracking and team collaboration' },
+      { name: 'Git & GitHub', desc: 'Daily version control, branching workflows, and team collaboration' },
+      { name: 'Docker', desc: 'Containerised development environments — used in real project workflows' },
+      { name: 'Postman', desc: 'API testing, collection management, and endpoint verification' },
+      { name: 'Hostinger & Server Management', desc: 'Domain hosting, DNS configuration, deployment, and server upkeep' },
+      { name: 'Azure DevOps', desc: 'Task tracking, sprint planning, and team coordination' },
     ],
   },
   {
-    title: 'Code Editors & Agentic AI',
+    title: 'Other Tools',
     skills: [
-      { name: 'Code Editors', desc: 'VS Code, Cursor, PyCharm, Antigravity' },
-      { name: 'Agentic AI Tools', desc: 'Cursor AI, Antigravity — used to accelerate standard workflows' },
+      { name: 'Keycloak', desc: 'Identity and access management — integrated in enterprise project at Encardio-Rite' },
+      { name: 'Agentic AI (Cursor & Antigravity)', desc: 'Accelerating development, debugging workflows, and rapid shipping without losing technical depth' },
     ],
   },
   {
-    title: 'Exposure / Familiar With',
+    title: 'Familiar With',
     exposure: true,
     skills: [
-      { name: 'TypeScript', desc: 'Familiar — used lightly in project support' },
-      { name: 'Python', desc: 'Familiar — used alongside FastAPI for backend work at Encardio-Rite' },
-      { name: 'FastAPI', desc: 'Worked with it in production at Encardio-Rite — still growing' },
-      { name: 'Keycloak', desc: 'Worked with it at Encardio-Rite — still learning internals' },
+      { name: 'Python & FastAPI', desc: 'Used in backend work at Encardio-Rite — interested in growing this further' },
+      { name: 'TypeScript', desc: 'Basic familiarity from frontend project exposure' },
     ],
   },
 ];
@@ -98,7 +99,7 @@ export default function TechStack() {
           transition={{ duration: 0.4, delay: 0.08 }}
           className="mb-12 text-sm text-slate-500"
         >
-          Only listing skills I can honestly discuss in an interview. "Exposure" means I've used it but am still learning.
+          Skills I can speak to confidently. "Familiar With" means I've used it in a real context and am actively learning more.
         </motion.p>
 
         <div className="space-y-10">
@@ -116,7 +117,7 @@ export default function TechStack() {
                 </h3>
                 {group.exposure && (
                   <span className="rounded-full border border-slate-700 px-2 py-0.5 text-xs text-slate-600">
-                    not interview-ready
+                    learning
                   </span>
                 )}
               </div>
@@ -142,7 +143,7 @@ export default function TechStack() {
                     <span className={`font-medium ${group.exposure ? 'text-slate-400' : 'text-slate-100'}`}>
                       {skill.name}
                     </span>
-                    <p className="mt-0.5 text-sm text-slate-500">
+                    <p className="mt-0.5 text-sm text-slate-500 leading-relaxed">
                       {skill.desc}
                     </p>
                   </motion.li>

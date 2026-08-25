@@ -2,6 +2,20 @@ import { motion } from 'framer-motion';
 
 const JOBS = [
   {
+    title: 'PHP Developer',
+    company: 'AI Digital Innovation',
+    period: 'Aug 2026 – Present',
+    tag: 'Full-time',
+    highlights: [
+      'Develop and maintain PHP applications and custom client websites, managing the development lifecycle from daily planning to final delivery.',
+      'Perform database management, query optimization, and systematic bug fixing to ensure robust application performance.',
+      'Conduct daily website health checks and provide ongoing technical support to maintain smooth client operations.',
+      'Manage cloud hosting infrastructure (Hostinger) and optimize web assets to ensure high availability for corporate domains and client environments.',
+      'Led incident response and rapid remediation efforts to address unauthorized file modifications, ensuring strict integrity management for core application files.',
+      'Implemented proactive server hardening and access control measures to protect proprietary business logic and mitigate external vulnerabilities.',
+    ],
+  },
+  {
     title: 'Software Apprentice — Backend Developer',
     company: 'Encardio-Rite Pvt. Ltd.',
     period: 'Jan 2025 – Jan 2026',

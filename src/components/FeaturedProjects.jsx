@@ -73,23 +73,6 @@ const PROJECT_GROUPS = [
       },
     ],
   },
-  {
-    section: 'Personal Project (In Progress)',
-    projects: [
-      {
-        name: 'Inventory & Invoice Management System',
-        inProgress: true,
-        bullets: [
-          'Building a full-featured inventory and invoice management system to deepen Laravel expertise.',
-          'Backend includes REST APIs, MySQL, Role-Based Access Control (RBAC), and Sanctum authentication.',
-          'Planning a React frontend to achieve end-to-end full stack ownership of the project.',
-        ],
-        stack: ['Laravel', 'PHP', 'Eloquent ORM', 'MySQL', 'REST APIs', 'React (planned)'],
-        repo: null,
-        live: null,
-      },
-    ],
-  },
 ];
 
 /* ── 3D Tilt Card Wrapper ─────────────────────────────────── */
