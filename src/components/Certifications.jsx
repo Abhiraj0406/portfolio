@@ -2,6 +2,12 @@ import { motion } from 'framer-motion';
 
 const CERTS = [
   {
+    icon: '🛡️',
+    name: 'DCSC — Web Application Penetration Testing',
+    issuer: 'TDO Tech Education Pvt. Ltd.',
+    desc: 'Completed certification criteria and examination in Web Application Penetration Testing (Cert ID: DCSC-AVRVV0326, Aug 2026).',
+  },
+  {
     icon: '🏆',
     name: 'NATS Software Apprentice',
     issuer: 'Encardio-Rite Pvt. Ltd.',
@@ -43,7 +49,7 @@ export default function Certifications() {
         >
           Training & achievements
         </motion.p>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2">
           {CERTS.map((cert, i) => (
             <motion.article
               key={cert.name}
