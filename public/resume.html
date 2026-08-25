@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhiraj Vishwakarma - Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f766e;
+      --primary-dark: #115e59;
+      --text-main: #1e293b;
+      --text-muted: #475569;
+      --text-light: #64748b;
+      --border: #e2e8f0;
+      --bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-main);
+      background-color: #f1f5f9;
+      line-height: 1.45;
+      font-size: 13px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page-container {
+      max-width: 820px;
+      margin: 24px auto;
+      background: var(--bg);
+      padding: 36px 42px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border-radius: 6px;
+    }
+
+    /* Print styling */
+    @media print {
+      body {
+        background: transparent;
+      }
+      .page-container {
+        margin: 0;
+        padding: 24px 30px;
+        box-shadow: none;
+        max-width: 100%;
+        border-radius: 0;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+
+    /* Header */
+    header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: -0.5px;
+    }
+
+    .title-role {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .contact-bar {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .contact-item a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-item a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    /* Section Headings */
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--primary-dark);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 3px;
+      margin-top: 14px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Summary */
+    .summary-text {
+      color: var(--text-muted);
+      font-size: 12.5px;
+      line-height: 1.5;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      row-gap: 5px;
+      column-gap: 12px;
+      font-size: 12.5px;
+    }
+
+    .skill-category {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .skill-list {
+      color: var(--text-muted);
+    }
+
+    /* Experience & Education Items */
+    .entry {
+      margin-bottom: 12px;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .entry-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .entry-subtitle {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--primary);
+    }
+
+    .entry-date {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-light);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    ul.bullet-list {
+      list-style-type: disc;
+      padding-left: 18px;
+      margin-top: 4px;
+    }
+
+    ul.bullet-list li {
+      color: var(--text-muted);
+      font-size: 12px;
+      margin-bottom: 3px;
+      line-height: 1.45;
+    }
+
+    ul.bullet-list li strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    /* Certifications Grid */
+    .cert-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    .cert-name {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .cert-issuer {
+      color: var(--text-muted);
+    }
+
+    .cert-meta {
+      font-size: 11.5px;
+      color: var(--text-light);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Floating Action Bar */
+    .print-bar {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0f172a;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 50px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 100;
+    }
+
+    .print-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 12px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .print-btn:hover {
+      background: var(--primary-dark);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Print Button -->
+  <div class="print-bar no-print">
+    <span>Ready to download?</span>
+    <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
+  </div>
+
+  <div class="page-container">
+    <!-- Header -->
+    <header>
+      <div class="header-top">
+        <div>
+          <h1>Abhiraj Vishwakarma</h1>
+          <div class="title-role">PHP Developer & Backend Software Engineer</div>
+        </div>
+      </div>
+      <div class="contact-bar">
+        <div class="contact-item">📍 Lucknow, UP, India</div>
+        <div class="contact-item">📞 <a href="tel:+917991978252">+91 7991978252</a></div>
+        <div class="contact-item">✉️ <a href="mailto:abhirajvishwakarma04@gmail.com">abhirajvishwakarma04@gmail.com</a></div>
+        <div class="contact-item">🌐 <a href="https://abhiraj0406.github.io/portfolio/" target="_blank">abhiraj0406.github.io/portfolio</a></div>
+        <div class="contact-item">💼 <a href="https://www.linkedin.com/in/abhiraj-vishwakarma-85304120b" target="_blank">LinkedIn</a></div>
+        <div class="contact-item">💻 <a href="https://github.com/Abhiraj0406" target="_blank">GitHub</a></div>
+      </div>
+    </header>
+
+    <!-- Summary -->
+    <section>
+      <div class="section-title">Professional Summary</div>
+      <p class="summary-text">
+        Backend Software Engineer experienced in architecting REST APIs, relational database design, and cloud hosting infrastructure. Currently working full-time as a <strong>PHP Developer at AI Digital Innovation</strong>, maintaining corporate web systems and managing live server environments. Completed a 1-year <strong>NATS Software Apprenticeship at Encardio-Rite Pvt. Ltd.</strong> developing production REST APIs in Laravel and Docker. Holds a formal <strong>DCSC certification in Web Application Penetration Testing</strong> with strong focus on code reliability, database optimization, and application security.
+      </p>
+    </section>
+
+    <!-- Technical Skills -->
+    <section>
+      <div class="section-title">Technical Skills</div>
+      <div class="skills-grid">
+        <div class="skill-category">Backend & Languages:</div>
+        <div class="skill-list">PHP (OOP), Laravel, RESTful API Design, Swagger / OpenAPI, Python & FastAPI (Exposure)</div>
+
+        <div class="skill-category">Databases & ORM:</div>
+        <div class="skill-list">MySQL, PostgreSQL, Eloquent ORM, Database Query Optimization, Schema Architecture</div>
+
+        <div class="skill-category">Tools & Infrastructure:</div>
+        <div class="skill-list">Docker, Hostinger Cloud Hosting, Server Hardening & Administration, Git & GitHub, Postman, Azure DevOps</div>
+
+        <div class="skill-category">Security & Frontend:</div>
+        <div class="skill-list">Web App Penetration Testing (DCSC), Keycloak, RBAC, React, Tailwind CSS, Blade</div>
+      </div>
+    </section>
+
+    <!-- Work Experience -->
+    <section>
+      <div class="section-title">Work Experience</div>
+
+      <!-- Job 1 -->
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">PHP Developer</span> — <span class="entry-subtitle">AI Digital Innovation</span>
+          </div>
+          <span class="entry-date">Aug 2026 – Present</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Architect, develop, and maintain custom PHP web applications and client systems from daily planning through deployment.</li>
+          <li>Perform relational database management and query optimization in MySQL to ensure low latency and high availability.</li>
+          <li>Administer cloud hosting infrastructure on Hostinger, configuring DNS records, domain deployments, and production server upkeep.</li>
+          <li>Lead incident response and rapid remediation efforts to address unauthorized file modifications and ensure strict core file integrity.</li>
+          <li>Implement proactive server hardening and access control measures to protect business logic and mitigate vulnerabilities.</li>
+        </ul>
+      </div>
+
+      <!-- Job 2 -->
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Software Apprentice — Backend Developer</span> — <span class="entry-subtitle">Encardio-Rite Pvt. Ltd.</span>
+          </div>
+          <span class="entry-date">Jan 2025 – Jan 2026</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Contributed to backend development of the <strong>Sensor Data Calibration & Management System</strong> in the Edge of Technology (EOT) division from initial API design to deployment.</li>
+          <li>Automated sensor calculation workflows, contributing to ~50% improvement in calibration data consistency and accuracy.</li>
+          <li>Built and tested structured RESTful APIs using Laravel, PHP, and Eloquent ORM with MySQL within a Dockerized development environment.</li>
+          <li>Developed REST API endpoints with filtering and pagination for the <strong>Internal Financial Dashboard</strong>, reducing manual reporting effort by ~40%.</li>
+          <li>Integrated Keycloak-based authentication and utilized Azure DevOps for sprint planning and agile team collaboration.</li>
+        </ul>
+      </div>
+
+      <!-- Job 3 -->
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Full Stack Developer Intern</span> — <span class="entry-subtitle">Zidio Development</span>
+          </div>
+          <span class="entry-date">Aug 2024 – Oct 2024</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Developed and integrated REST API endpoints with frontend components in a collaborative agile environment.</li>
+          <li>Contributed to systematic bug fixing, endpoint validation, and cross-browser responsiveness.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Key Projects -->
+    <section>
+      <div class="section-title">Key Projects</div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">URL Shortener Service</span> — <span style="color: var(--text-muted); font-size: 12px;">Laravel 12, PHP 8.2+, MySQL, Breeze, RBAC</span>
+          </div>
+          <span class="entry-date"><a href="https://github.com/Abhiraj0406/URL-Shortner" target="_blank" style="color: var(--primary); text-decoration: none;">GitHub</a></span>
+        </div>
+        <ul class="bullet-list">
+          <li>Engineered a multi-tenant URL shortening platform with Role-Based Access Control (SuperAdmin, Admin, Member) and collision-resistant short-code generation.</li>
+          <li>Built scoped dashboards allowing admins to manage corporate links and members to track analytics.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Employee Management System</span> — <span style="color: var(--text-muted); font-size: 12px;">Laravel, MySQL, Blade, Tailwind CSS</span>
+          </div>
+          <span class="entry-date"><a href="https://github.com/Abhiraj0406/employee-management" target="_blank" style="color: var(--primary); text-decoration: none;">GitHub</a></span>
+        </div>
+        <ul class="bullet-list">
+          <li>Implemented full employee lifecycle management with authentication, RBAC middleware, document file uploads, and server-side validation.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">ExploreHub — Web Data Discovery Platform</span> — <span style="color: var(--text-muted); font-size: 12px;">Cloud Infrastructure, Docker, PostgreSQL, Redis, Railway, Vercel</span>
+          </div>
+          <span class="entry-date"><a href="https://explore-hub-neon.vercel.app/" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 600;">Live Demo</a> • <a href="https://github.com/Abhiraj0406/ExploreHub" target="_blank" style="color: var(--primary); text-decoration: none;">GitHub</a></span>
+        </div>
+        <ul class="bullet-list">
+          <li>Configured and deployed a distributed application with frontend on Vercel, backend service on Railway, and cloud-hosted PostgreSQL with Redis caching.</li>
+          <li>Integrated automated web scraping workflows using Playwright and containerized service environments in Docker.</li>
+        </ul>
+      </div>
+
+      <div style="font-size: 11.5px; color: var(--text-light); margin-top: 6px; font-style: italic;">
+        🔗 For more projects, architecture breakdown, and live demos, visit: <a href="https://abhiraj0406.github.io/portfolio/#projects" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 500;">abhiraj0406.github.io/portfolio</a>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section>
+      <div class="section-title">Certifications & Training</div>
+      <div class="cert-item">
+        <div>
+          <span class="cert-name">DCSC — Web Application Penetration Testing</span> — <span class="cert-issuer">TDO Tech Education (ISO 9001:2015)</span>
+        </div>
+        <div class="cert-meta">ID: DCSC-AVRVV0326 | Aug 2026</div>
+      </div>
+      <div class="cert-item">
+        <div>
+          <span class="cert-name">NATS Software Apprentice Certificate</span> — <span class="cert-issuer">Ministry of Education / Encardio-Rite Pvt. Ltd.</span>
+        </div>
+        <div class="cert-meta">Apprentice ID: Encardio-EOT | Jan 2026</div>
+      </div>
+      <div class="cert-item">
+        <div>
+          <span class="cert-name">Web Development & Career Preparation</span> — <span class="cert-issuer">Internshala Trainings</span>
+        </div>
+        <div class="cert-meta">Certified Graduate</div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <div class="section-title">Education</div>
+      <div class="entry" style="margin-bottom: 0;">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Bachelor of Technology (B.Tech) in Computer Science & Engineering</span>
+          </div>
+          <span class="entry-date">2020 – 2024</span>
+        </div>
+        <div style="font-size: 12px; color: var(--text-muted);">
+          Dr. A.P.J. Abdul Kalam Technical University (AKTU), Lucknow | <strong>CGPA: 7.66 / 10</strong>
+        </div>
+        <div style="font-size: 11.5px; color: var(--text-light); margin-top: 2px;">
+          <em>Core Coursework:</em> Data Structures & Algorithms, DBMS, Object-Oriented Programming (OOP), Computer Networks, Operating Systems.
+        </div>
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>

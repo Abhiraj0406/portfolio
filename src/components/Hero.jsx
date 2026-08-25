@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const BASE = import.meta.env.BASE_URL;
-const RESUME_URL = `${BASE}laravel_backend_abhiraj_resume.pdf`;
-const PHOTO_URL  = `${BASE}myimg.jpg`;
+const RESUME_URL = `${BASE}Resume_Abhiraj_Vishwakarma.pdf`;
+const PHOTO_URL = `${BASE}myimg.jpg`;
 
 const ROLES = [
   'Backend Developer',
@@ -14,9 +14,9 @@ const ROLES = [
 
 /** Typewriter hook */
 function useTypewriter(words, typingSpeed = 75, deletingSpeed = 40, pauseMs = 1800) {
-  const [index, setIndex]       = useState(0);
+  const [index, setIndex] = useState(0);
   const [displayed, setDisplayed] = useState('');
-  const [deleting, setDeleting]   = useState(false);
+  const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
     const word = words[index];
@@ -147,7 +147,9 @@ export default function Hero() {
         >
           <a
             href={RESUME_URL}
-            download
+            download="Abhiraj_Vishwakarma_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative overflow-hidden rounded-full bg-teal-500 px-7 py-3 text-sm font-semibold text-black transition-all hover:bg-teal-400 hover:shadow-[0_0_24px_rgba(20,184,166,0.5)]"
           >
             <span className="relative z-10">Download Resume</span>
