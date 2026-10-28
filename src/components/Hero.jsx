@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const BASE = import.meta.env.BASE_URL;
-const RESUME_URL = `${BASE}Resume_Abhiraj_Vishwakarma.pdf`;
+const RESUME_URL = `${BASE}Resume_Abhiraj Vishwakarma.pdf`;
 const PHOTO_URL = `${BASE}myimg.jpg`;
 
 const ROLES = [
